@@ -24,8 +24,8 @@ float tam = 3.5f, Tempo = 0,
       c1_1, c1_2, c2_1, c2_2;    // Coordenadas de spawn dos carrinhos.
 
 int n1, n2, jogada = 0, rodada = 0, numero_aleatorio, ponto1 = 0, ponto2 = 0,
-            Velocidade_1 = 30, Velocidade_2 = 30, // Velocidade inicial dos projéteis dos canhőes.
-            angulo_1 = 85, angulo_2 = 85; // Ângulo inicial dos canhőes.
+            Velocidade_1 = 30, Velocidade_2 = 30, // Velocidade inicial dos projeteis dos canhoes.
+            angulo_1 = 85, angulo_2 = 85; // Angulo inicial dos canhoes.
 
 bool bola1 = false, bola2 = false, colisao1 = false, colisao2 = false;
 
@@ -37,10 +37,18 @@ static void Atualiza_tamanho(int w, int h)
     gluOrtho2D(-40.0,40.0,-40.0,40.0);
 }
 
-// -------------- Cenário --------------
+// -------------- Cenario --------------
 void predio_maior()
 {
     glBegin(GL_QUADS);
+    glVertex2f(-1.5f*4,-tam*4);
+    glVertex2f(-1.5f*4,tam*4);
+    glVertex2f(1.5f*4,tam*4);
+    glVertex2f(1.5f*4,-tam*4);
+    glEnd();
+
+    glColor3f(0,0,0);
+    glBegin(GL_LINE_LOOP);
     glVertex2f(-1.5f*4,-tam*4);
     glVertex2f(-1.5f*4,tam*4);
     glVertex2f(1.5f*4,tam*4);
@@ -51,6 +59,14 @@ void predio_maior()
 void predio_menor()
 {
     glBegin(GL_QUADS);
+    glVertex2f(-1.5f*4,-tam*4);
+    glVertex2f(-1.5f*4,tam*3);
+    glVertex2f(1.5f*4,tam*3);
+    glVertex2f(1.5f*4,-tam*4);
+    glEnd();
+
+    glColor3f(0,0,0);
+    glBegin(GL_LINE_LOOP);
     glVertex2f(-1.5f*4,-tam*4);
     glVertex2f(-1.5f*4,tam*3);
     glVertex2f(1.5f*4,tam*3);
@@ -87,6 +103,14 @@ void base(void)
     glVertex2f(tam,1.5f);
     glVertex2f(tam,-1.5f);
     glEnd();
+
+    glColor3f(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(-tam,-1.5f);
+    glVertex2f(-tam,1.5f);
+    glVertex2f(tam,1.5f);
+    glVertex2f(tam,-1.5f);
+    glEnd();
 }
 
 void cano()
@@ -97,11 +121,27 @@ void cano()
     glVertex2f(0.7f,3.0f);
     glVertex2f(0.7f,-3.0f);
     glEnd();
+
+    glColor3f(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(-0.7f,-3.0f);
+    glVertex2f(-0.7f,3.0f);
+    glVertex2f(0.7f,3.0f);
+    glVertex2f(0.7f,-3.0f);
+    glEnd();
 }
 
 void quadrado()
 {
     glBegin(GL_QUADS);
+    glVertex2f(-2.0f,-2.0f);
+    glVertex2f(-2.0f,2.0f);
+    glVertex2f(2.0f,2.0f);
+    glVertex2f(2.0f,-2.0f);
+    glEnd();
+
+    glColor3f(0,0,0);
+    glBegin(GL_LINE_LOOP);
     glVertex2f(-2.0f,-2.0f);
     glVertex2f(-2.0f,2.0f);
     glVertex2f(2.0f,2.0f);
@@ -122,12 +162,26 @@ void triang()
 // Circulo
 void eixo()
 {
-    float teta = 0.0f;
+    float teta = 0.0f, teta2 = 0.1, raio = 1.0;
+
     glBegin(GL_POLYGON);
     while(teta < 360.0)
     {
         glVertex2f(1.5*cos(teta/180.0 * PI),1.5*sin(teta/180.0 * PI));
         teta += 0.1;
+    }
+    glEnd();
+
+    glBegin(GL_LINES);
+    while(teta2 < 360.0)
+    {
+        raio = 1.5;
+        glColor3f(0.0f, 0.0f, 0.0f);
+        glVertex2f((cos(teta2) * raio),(sin(teta2) * raio));
+        raio = 1.2;
+
+        glVertex2f((cos(teta2) * raio),(sin(teta2) * raio));
+        teta2 +=1.0;
     }
     glEnd();
 }
@@ -468,7 +522,7 @@ void desenha_citadel()
 
 void desenha_cidade()
 {
-//------------- Construçőes do lado esquerdo -------------
+//------------- Construcoes do lado esquerdo -------------
     glPushMatrix();
     glTranslatef(-30,-5,0.0);
     desenha_predio_maior();
@@ -526,7 +580,7 @@ void desenha_cidade()
     desenha_torre();
     glPopMatrix();
 
-//------------- Construçőes do lado direito -------------
+//------------- Construcoes do lado direito -------------
     glPushMatrix();
     glTranslatef(+15,-5,0.0);
     desenha_predio_maior();
@@ -608,7 +662,7 @@ void desenha_carrinho_1()
     glColor3f(1.0*c1_cor,1.0*c1_cor,1.0*c1_cor);
     quadrado();
 
-    // Cano do canhăo
+    // Cano do canhao
     glPushMatrix();
     glRotatef(angulo_1,0,0,1);
     glTranslatef(0.0,tam,0.0);
@@ -658,7 +712,7 @@ void desenha_carrinho_2()
     glColor3f(1.0*c2_cor,0.5*c2_cor,0.5*c2_cor);
     quadrado();
 
-    // Cano do canhăo
+    // Cano do canhao
     glPushMatrix();
     glRotatef(angulo_2,0,0,1);
     glTranslatef(0.0,tam,0.0);
@@ -691,7 +745,7 @@ void spawn_carrinho_1()
     switch(n1)
     {
     case 0:
-        // Posiçăo 1.
+        // Posicao 1.
         glTranslatef(-123,-16,0.0);
         c1_1 = -123;
         c1_2 = -16;
@@ -699,7 +753,7 @@ void spawn_carrinho_1()
         break;
 
     case 1:
-        // Posiçăo 2.
+        // Posicao 2.
         glTranslatef(-90,7,0.0);
         c1_1 = -90;
         c1_2 = 7;
@@ -707,7 +761,7 @@ void spawn_carrinho_1()
         break;
 
     case 2:
-        // Posiçăo 3.
+        // Posicao 3.
         glTranslatef(0,-16,0.0);
         c1_1 = 0;
         c1_2 = -16;
@@ -715,7 +769,7 @@ void spawn_carrinho_1()
         break;
 
     case 3:
-        // Posiçăo 4.
+        // Posicao 4.
         glTranslatef(150,11,0.0);
         c1_1 = 150;
         c1_2 = 11;
@@ -732,7 +786,7 @@ void spawn_carrinho_2()
     switch(n2)
     {
     case 0:
-        // Posiçăo 1.
+        // Posicao 1.
         glTranslatef(-180,7.7,0.0);
         c2_1 = -180;
         c2_2 = 7.7;
@@ -740,7 +794,7 @@ void spawn_carrinho_2()
         break;
 
     case 1:
-        // Posiçăo 2.
+        // Posicao 2.
         glTranslatef(60,7.7,0.0);
         c2_1 = 60;
         c2_2 = 7.7;
@@ -748,7 +802,7 @@ void spawn_carrinho_2()
         break;
 
     case 2:
-        // Posiçăo 3.
+        // Posicao 3.
         glTranslatef(120,-16,0.0);
         c2_1 = 120;
         c2_2 = -16;
@@ -756,7 +810,7 @@ void spawn_carrinho_2()
         break;
 
     case 3:
-        // Posiçăo 4.
+        // Posicao 4.
         glTranslatef(180,7.7,0.0);
         c2_1 = 180;
         c2_2 = 7.7;
@@ -777,14 +831,14 @@ static void Atualiza_desenho(void)
     glPushMatrix();
     glTranslatef(0,-5,0.0);
     glScalef(0.5,2.5,0.0);
-    desenha_citadel();  // Desenha a Citadel (construçăo gigante).
+    desenha_citadel();  // Desenha a Citadel (construcao gigante).
     glPopMatrix();
 
     glScalef(0.2,0.3,0.0);
     glTranslatef(0,-115,0.0);
-    desenha_cidade();   // Desenha a cidade (prédios em ordem).
+    desenha_cidade();   // Desenha a cidade (predios em ordem).
 
-    // Desenha os carrinhos em uma das quatro posiçőes de cada.
+    // Desenha os carrinhos em uma das quatro posicoes de cada.
     spawn_carrinho_1();
     spawn_carrinho_2();
 
@@ -794,7 +848,7 @@ static void Atualiza_desenho(void)
 void nova_rodada()
 {
     srand(time(NULL));
-    // Gera números aleatórios de 0 à 3, para definir as novas posiçőes dos carrinhos.
+    // Gera números aleatorios de 0 a 3, para definir as novas posicoes dos carrinhos.
     n1 = rand()%4;
     n2 = rand()%4;
 
@@ -804,19 +858,19 @@ void nova_rodada()
 
     numero_aleatorio = rand()%3;
 
-    if(numero_aleatorio == 0)   // Se o numero é 0, o fundo é verde.
+    if(numero_aleatorio == 0)   // Se o numero e 0, o fundo e verde.
     {
         r = 0.0;
         g = 0.5;
         b = 0.5;
     }
-    if(numero_aleatorio == 1)   // Se o número é 1, o fundo é roxo.
+    if(numero_aleatorio == 1)   // Se o número e 1, o fundo e roxo.
     {
         r = 0.5;
         g = 0.5;
         b = 1.0;
     }
-    if(numero_aleatorio == 2)   // Se o numero é 2, o fundo é amarelo.
+    if(numero_aleatorio == 2)   // Se o numero e 2, o fundo e amarelo.
     {
         r = 0.5;
         g = 0.5;
@@ -850,39 +904,39 @@ void LeTeclado(unsigned char tecla, int x, int y)
         glutPostRedisplay();
     }
 
-    if(jogada%2 == 0)   // Se a jogada for par, é a vez do Player 1.
+    if(jogada%2 == 0)   // Se a jogada for par, e a vez do Player 1.
     {
         switch (tecla)
         {
 
 //########################## CONTROLES PLAYER 1 ##########################
-        // Movimenta o cano do canhăo 1.
+        // Movimenta o cano do canhao 1.
         case 'a':
-            // Incrementa em 1 o ângulo se năo estiver no limite.
+            // Incrementa em 1 o angulo se nao estiver no limite.
             if(angulo_1 <= 87) angulo_1 = angulo_1 + 1;
             glutPostRedisplay();
             break;
 
         case 'd':
-            // Decrementa em 1 o ângulo se năo estiver no limite.
+            // Decrementa em 1 o angulo se nao estiver no limite.
             if(angulo_1 >= -87) angulo_1 = angulo_1 - 1;
             glutPostRedisplay();
             break;
 
         case 'w':
-            // Incrementa a velocidade do canhăo 1.
+            // Incrementa a velocidade do canhao 1.
             Velocidade_1++;
             glutPostRedisplay();
             break;
 
         case 's':
-            // Decrementa a velocidade do canhăo 1.
+            // Decrementa a velocidade do canhao 1.
             Velocidade_1--;
             glutPostRedisplay();
             break;
 
         case 'f':
-            // Atira com o canhăo 1.
+            // Atira com o canhao 1.
             bola1 = true;
             if(bola1)
             {
@@ -893,38 +947,38 @@ void LeTeclado(unsigned char tecla, int x, int y)
         }
     }
 
-    if(jogada%2 != 0)   // Se a jogada for impar, é a vez do Player 2.
+    if(jogada%2 != 0)   // Se a jogada for impar, e a vez do Player 2.
     {
         switch (tecla)
         {
 //########################## CONTROLES PLAYER 2 ##########################
-        // Movimenta o cano do canhăo 2.
+        // Movimenta o cano do canhao 2.
         case 'j':
-            // Incrementa em 1 o ângulo se năo estiver no limite.
+            // Incrementa em 1 o angulo se nao estiver no limite.
             if(angulo_2 <= 87) angulo_2 = angulo_2 + 1;
             glutPostRedisplay();
             break;
 
         case 'l':
-            // Decrementa em 1 o ângulo se năo estiver no limite.
+            // Decrementa em 1 o angulo se nao estiver no limite.
             if(angulo_2 >= -87) angulo_2 = angulo_2 - 1;
             glutPostRedisplay();
             break;
 
         case 'i':
-            // Incrementa a velocidade do canhăo 2.
+            // Incrementa a velocidade do canhao 2.
             Velocidade_2++;
             glutPostRedisplay();
             break;
 
         case 'k':
-            // Decrementa a velocidade do canhăo 2.
+            // Decrementa a velocidade do canhao 2.
             Velocidade_2--;
             glutPostRedisplay();
             break;
 
         case 'h':
-            // Atira com o canhăo 2.
+            // Atira com o canhao 2.
             bola2 = true;
             if(bola2)
             {
@@ -938,7 +992,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
 
 void tempo(int value)
 {
-    Tempo += 0.1;   // O tempo para utilizar na equaçăo de lançamento oblíquo.
+    Tempo += 0.1;   // O tempo para utilizar na equacao de lancamento oblíquo.
     glutPostRedisplay();
 }
 
@@ -951,12 +1005,12 @@ void tiro_1()
           y = Voy * Tempo - G * Tempo * Tempo / 2,
 
           posicao_x = 0.0 + x,
-          posicao_y = 2.0 + y; // Posiçăo (x,y) do projétil.
+          posicao_y = 2.0 + y; // Posicao (x,y) do projetil.
 
-    // Mostra a trajetória do projétil.
+    // Mostra a trajetoria do projetil.
     trajetoria_balistica_1();
 
-    // Limites para +x, -x e -y para a posiçăo do projétil.
+    // Limites para +x, -x e -y para a posicao do projetil.
     if(posicao_x >= -400.00 && posicao_y >= -200.00 && posicao_x <= 400.00)
     {
         glTranslatef(posicao_x, posicao_y, 0.0);
@@ -975,7 +1029,7 @@ void tiro_1()
                 c2_cor = 0.5; // O Carrinho 2 muda de cor ao ser atingido.
             }
 
-            bola1 = false;  // Sai da condiçăo de tiro.
+            bola1 = false;  // Sai da condicao de tiro.
             Tempo = 0;
 
             if(ponto1 == 2)
@@ -996,13 +1050,13 @@ void tiro_1()
                 (posicao_x+c1_1 >= -200+0     && posicao_x+c1_1 <= -200+70.8     && posicao_y+c1_2 >= 0-19        && posicao_y+c1_2 <= 0+5.5)   ||
                 (posicao_x+c1_1 >= -111+0     && posicao_x+c1_1 <= -111+87       && posicao_y+c1_2 >= -1-19       && posicao_y+c1_2 <= -1+5.5))
         {
-            bola1 = false;  // Colidiu com os predios, sai da condiçăo de tiro.
+            bola1 = false;  // Colidiu com os predios, sai da condicao de tiro.
             Tempo = 0;
         }
     }
     else
     {
-        bola1 = false;  // Sai da condiçăo de tiro.
+        bola1 = false;  // Sai da condicao de tiro.
         Tempo = 0;
     }
 }
@@ -1016,12 +1070,12 @@ void tiro_2()
           y = Voy * Tempo - G * Tempo * Tempo / 2,
 
           posicao_x = 0.0 + x,
-          posicao_y = 2.0 + y; // Posiçăo (x,y) do projétil.
+          posicao_y = 2.0 + y; // Posicao (x,y) do projetil.
 
-    // Mostra a trajetória do projétil.
+    // Mostra a trajetoria do projetil.
     trajetoria_balistica_2();
 
-    // Limites para +x, -x e -y para a posiçăo do projétil.
+    // Limites para +x, -x e -y para a posicao do projetil.
     if(posicao_x >= -400.00 && posicao_y >= -200.00 && posicao_x <= 400.00)
     {
         glTranslatef(posicao_x, posicao_y, 0.0);
@@ -1039,7 +1093,7 @@ void tiro_2()
                 c1_cor = 0.5; // O Carrinho 1 muda de cor ao ser atingido.
             }
 
-            bola2 = false;  // Sai da condiçăo de tiro.
+            bola2 = false;  // Sai da condicao de tiro.
             Tempo = 0;
 
             if(ponto2 == 2)
@@ -1060,13 +1114,13 @@ void tiro_2()
                 (posicao_x+c2_1 >= -200+0     && posicao_x+c2_1 <= -200+70.8     && posicao_y+c2_2 >= 0-19        && posicao_y+c2_2 <= 0+5.5)   ||
                 (posicao_x+c2_1 >= -111+0     && posicao_x+c2_1 <= -111+87       && posicao_y+c2_2 >= -1-19       && posicao_y+c2_2 <= -1+5.5))
         {
-            bola2 = false;  // Colidiu nos predios, entăo sai da condiçăo de tiro.
+            bola2 = false;  // Colidiu nos predios, entao sai da condicao de tiro.
             Tempo = 0;
         }
     }
     else
     {
-        bola2 = false;  // Sai da condiçăo de tiro.
+        bola2 = false;  // Sai da condicao de tiro.
         Tempo = 0;
     }
 }
@@ -1079,7 +1133,7 @@ void trajetoria_balistica_1()
           tempo = 0.0, X = 0.0, Y = 2.0;
 
     glBegin(GL_LINE_STRIP);
-    while(tempo <= 4 * (Voy * 2 / G))   // Desenha a linha da trajetória, até um dado tempo.
+    while(tempo <= 4 * (Voy * 2 / G))   // Desenha a linha da trajetoria, ate um dado tempo.
     {
         glVertex2f(X + Vox * tempo, Y + Voy * tempo - G * tempo * tempo / 2);
         tempo += 0.1;
@@ -1095,7 +1149,7 @@ void trajetoria_balistica_2()
           tempo = 0.0, X = 0.0, Y = 2.0;
 
     glBegin(GL_LINE_STRIP);
-    while(tempo <= 4 * (Voy * 2 / G))   // Desenha a linha da trajetória, até um dado tempo.
+    while(tempo <= 4 * (Voy * 2 / G))   // Desenha a linha da trajetoria, ate um dado tempo.
     {
         glVertex2f(X + Vox * tempo, Y + Voy * tempo - G * tempo * tempo / 2);
         tempo += 0.1;
@@ -1103,7 +1157,7 @@ void trajetoria_balistica_2()
     glEnd();
 }
 
-//------------------ Funçőes para imprimir o texto na tela. ------------------
+//------------------ Funcoes para imprimir o texto na tela. ------------------
 void renderbitmap(float x, float y, void *font, char* string)
 {
     char *c;
@@ -1118,7 +1172,7 @@ void texto()
 {
     char buf[100] = {0};
 
-    if(jogada%2 == 0) // Se a jogada for par, é a vez do Player 1.
+    if(jogada%2 == 0) // Se a jogada for par, e a vez do Player 1.
     {
         glColor3f(0.0f, 1.0f, 1.0f);
         sprintf_s(buf,"Velocidade: %d m/s, Angulo: %d", Velocidade_1, angulo_1+90);
@@ -1144,7 +1198,7 @@ void texto()
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,31,GLUT_BITMAP_HELVETICA_10, buf);
 
-    if(jogada%2 != 0)   // Se a jogada for impar, é a vez do Player 2.
+    if(jogada%2 != 0)   // Se a jogada for impar, e a vez do Player 2.
     {
         glColor3f(0.5,0.0,0.0);
         sprintf_s(buf,"Velocidade: %d m/s, Angulo: %d", Velocidade_2, angulo_2+90);
@@ -1178,8 +1232,8 @@ void texto()
     sprintf_s(buf,"SAIR:                      Q");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,28,GLUT_BITMAP_HELVETICA_10, buf);
-      
-    // Informações da partida.
+
+    // Informacoes da partida.
     sprintf_s(buf,"RODADA %d   (PLAYER 1) %d x %d (PLAYER 2)", rodada+1, ponto1,ponto2);
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(15,38,GLUT_BITMAP_HELVETICA_18, buf);
@@ -1192,7 +1246,7 @@ void texto()
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
-    // Gera números aleatórios de 0 à 3, para definir as posiçőes dos carrinhos.
+    // Gera números aleatorios de 0 a 3, para definir as posicoes dos carrinhos.
     n1 = rand()%4;
     n2 = rand()%4;
 
@@ -1205,22 +1259,22 @@ int main(int argc, char *argv[])
     glutDisplayFunc(Atualiza_desenho);
     glutKeyboardFunc(LeTeclado);
 
-    // Numeros aleatórios de 0 à 3, para definir a cor do fundo.
+    // Numeros aleatorios de 0 a 3, para definir a cor do fundo.
     numero_aleatorio = rand()%3;
 
-    if(numero_aleatorio == 0)   // Se o numero é 0, o fundo é verde.
+    if(numero_aleatorio == 0)   // Se o numero e 0, o fundo e verde.
     {
         r = 0.0;
         g = 0.5;
         b = 0.5;
     }
-    if(numero_aleatorio == 1)   // Se o número é 1, o fundo é roxo.
+    if(numero_aleatorio == 1)   // Se o número e 1, o fundo e roxo.
     {
         r = 0.5;
         g = 0.5;
         b = 1.0;
     }
-    if(numero_aleatorio == 2)   // Se o numero é 2, o fundo é amarelo.
+    if(numero_aleatorio == 2)   // Se o numero e 2, o fundo e amarelo.
     {
         r = 0.5;
         g = 0.5;
