@@ -932,7 +932,8 @@ void LeTeclado(unsigned char tecla, int x, int y)
         // Movimenta o cano do canhao 1.
         case 'a':
             // Incrementa em 1 o angulo se nao estiver no limite.
-            if(vez1 == false){
+            if(vez1 == false)
+            {
                 if(angulo_1 <= 87) angulo_1 = angulo_1 + 1;
                 glutPostRedisplay();
             }
@@ -941,7 +942,8 @@ void LeTeclado(unsigned char tecla, int x, int y)
 
         case 'd':
             // Decrementa em 1 o angulo se nao estiver no limite.
-            if(vez1 == false){
+            if(vez1 == false)
+            {
                 if(angulo_1 >= -87) angulo_1 = angulo_1 - 1;
                 glutPostRedisplay();
             }
@@ -949,7 +951,8 @@ void LeTeclado(unsigned char tecla, int x, int y)
 
         case 'w':
             // Incrementa a velocidade do canhao 1.
-            if(vez1 == false){
+            if(vez1 == false)
+            {
                 Velocidade_1++;
                 glutPostRedisplay();
             }
@@ -957,7 +960,8 @@ void LeTeclado(unsigned char tecla, int x, int y)
 
         case 's':
             // Decrementa a velocidade do canhao 1.
-            if(vez1 == false){
+            if(vez1 == false)
+            {
                 Velocidade_1--;
                 glutPostRedisplay();
             }
@@ -983,7 +987,8 @@ void LeTeclado(unsigned char tecla, int x, int y)
 //########################## CONTROLES PLAYER 2 ##########################
         // Movimenta o cano do canhao 2.
         case 'j':
-            if(vez2 == false){
+            if(vez2 == false)
+            {
                 // Incrementa em 1 o angulo se nao estiver no limite.
                 if(angulo_2 <= 87) angulo_2 = angulo_2 + 1;
                 glutPostRedisplay();
@@ -991,7 +996,8 @@ void LeTeclado(unsigned char tecla, int x, int y)
             break;
 
         case 'l':
-            if(vez2 == false){
+            if(vez2 == false)
+            {
                 // Decrementa em 1 o angulo se nao estiver no limite.
                 if(angulo_2 >= -87) angulo_2 = angulo_2 - 1;
                 glutPostRedisplay();
@@ -999,7 +1005,8 @@ void LeTeclado(unsigned char tecla, int x, int y)
             break;
 
         case 'i':
-            if(vez2 == false){
+            if(vez2 == false)
+            {
                 // Incrementa a velocidade do canhao 2.
                 Velocidade_2++;
                 glutPostRedisplay();
@@ -1007,7 +1014,8 @@ void LeTeclado(unsigned char tecla, int x, int y)
             break;
 
         case 'k':
-            if(vez2 == false){
+            if(vez2 == false)
+            {
                 // Decrementa a velocidade do canhao 2.
                 Velocidade_2--;
                 glutPostRedisplay();
@@ -1040,7 +1048,8 @@ void tiro_1()
           posicao_y = 2.0 + y; // Posicao (x,y) do projetil.
 
     // Mostra a trajetoria do projetil.
-    if(bola1 == true){
+    if(bola1 == true)
+    {
         trajetoria_balistica_1();
     }
 
@@ -1079,10 +1088,12 @@ void tiro_1()
             vez_jogada();   // Alterna jogada.
         }
 
-        if((posicao_x+c1_1 >= 9               && posicao_x+c1_1 <= 9+104         && posicao_y+c1_2 >= -19         && posicao_y+c1_2 <= +5.5)    ||
-                (posicao_x+c1_1 >= 128+0      && posicao_x+c1_1 <= 128+60        && posicao_y+c1_2 >= 0-19        && posicao_y+c1_2 <= 0+5.5)   ||
-                (posicao_x+c1_1 >= -200+0     && posicao_x+c1_1 <= -200+70.8     && posicao_y+c1_2 >= 0-19        && posicao_y+c1_2 <= 0+5.5)   ||
-                (posicao_x+c1_1 >= -111+0     && posicao_x+c1_1 <= -111+87       && posicao_y+c1_2 >= -1-19       && posicao_y+c1_2 <= -1+5.5))
+        if((posicao_x+c1_1 >= 9          && posicao_x+c1_1 <= 9+104         && posicao_y+c1_2 >= -19         && posicao_y+c1_2 <= +5.5)     ||
+           (posicao_x+c1_1 >= 128+0      && posicao_x+c1_1 <= 128+60        && posicao_y+c1_2 >= 0-19        && posicao_y+c1_2 <= 0+5.5)    ||
+           (posicao_x+c1_1 >= -200+0     && posicao_x+c1_1 <= -200+70.8     && posicao_y+c1_2 >= 0-19        && posicao_y+c1_2 <= 0+5.5)    ||
+           (posicao_x+c1_1 >= -111+0     && posicao_x+c1_1 <= -111+87       && posicao_y+c1_2 >= -1-19       && posicao_y+c1_2 <= -1+5.5)   ||
+           (posicao_x+c1_1 >= -200-2     && posicao_x+c1_1 <= -200+2        && posicao_y+c1_2 >= 0-500       && posicao_y+c1_2 <= 0+1000)   ||
+           (posicao_x+c1_1 >= +200-2     && posicao_x+c1_1 <= +200+2        && posicao_y+c1_2 >= 0-500       && posicao_y+c1_2 <= 0+1000))
         {
             bola1 = false;  // Colidiu com os predios, sai da condicao de tiro.
             Tempo = 0;
@@ -1108,7 +1119,8 @@ void tiro_2()
           posicao_x = 0.0 + x,
           posicao_y = 2.0 + y; // Posicao (x,y) do projetil.
 
-    if(bola2 == true){
+    if(bola2 == true)
+    {
         // Mostra a trajetoria do projetil.
         trajetoria_balistica_2();
     }
@@ -1148,10 +1160,12 @@ void tiro_2()
 
         }
 
-        if((posicao_x+c2_1 >= 9               && posicao_x+c2_1 <= 9+104         && posicao_y+c2_2 >= -19         && posicao_y+c2_2 <= +5.5)    ||
-                (posicao_x+c2_1 >= 128+0      && posicao_x+c2_1 <= 128+60        && posicao_y+c2_2 >= 0-19        && posicao_y+c2_2 <= 0+5.5)   ||
-                (posicao_x+c2_1 >= -200+0     && posicao_x+c2_1 <= -200+70.8     && posicao_y+c2_2 >= 0-19        && posicao_y+c2_2 <= 0+5.5)   ||
-                (posicao_x+c2_1 >= -111+0     && posicao_x+c2_1 <= -111+87       && posicao_y+c2_2 >= -1-19       && posicao_y+c2_2 <= -1+5.5))
+        if((posicao_x+c2_1 >= 9          && posicao_x+c2_1 <= 9+104         && posicao_y+c2_2 >= -19         && posicao_y+c2_2 <= +5.5)    ||
+           (posicao_x+c2_1 >= 128+0      && posicao_x+c2_1 <= 128+60        && posicao_y+c2_2 >= 0-19        && posicao_y+c2_2 <= 0+5.5)   ||
+           (posicao_x+c2_1 >= -200+0     && posicao_x+c2_1 <= -200+70.8     && posicao_y+c2_2 >= 0-19        && posicao_y+c2_2 <= 0+5.5)   ||
+           (posicao_x+c2_1 >= -111+0     && posicao_x+c2_1 <= -111+87       && posicao_y+c2_2 >= -1-19       && posicao_y+c2_2 <= -1+5.5)  ||
+           (posicao_x+c2_1 >= -200-2     && posicao_x+c2_1 <= -200+2        && posicao_y+c2_2 >= 0-500       && posicao_y+c2_2 <= 0+1000)  ||
+           (posicao_x+c2_1 >= +200-2     && posicao_x+c2_1 <= +200+2        && posicao_y+c2_2 >= 0-500       && posicao_y+c2_2 <= 0+1000))
         {
             bola2 = false;  // Colidiu nos predios, entao sai da condicao de tiro.
             Tempo = 0;
