@@ -1040,7 +1040,9 @@ void tiro_1()
           posicao_y = 2.0 + y; // Posicao (x,y) do projetil.
 
     // Mostra a trajetoria do projetil.
-    trajetoria_balistica_1();
+    if(bola1 == true){
+        trajetoria_balistica_1();
+    }
 
     // Limites para +x, -x e -y para a posicao do projetil.
     if(posicao_x >= -400.00 && posicao_y >= -22.00 && posicao_x <= 400.00)
@@ -1106,8 +1108,10 @@ void tiro_2()
           posicao_x = 0.0 + x,
           posicao_y = 2.0 + y; // Posicao (x,y) do projetil.
 
-    // Mostra a trajetoria do projetil.
-    trajetoria_balistica_2();
+    if(bola2 == true){
+        // Mostra a trajetoria do projetil.
+        trajetoria_balistica_2();
+    }
 
     // Limites para +x, -x e -y para a posicao do projetil.
     if(posicao_x >= -400.00 && posicao_y >= -22.00 && posicao_x <= 400.00)
