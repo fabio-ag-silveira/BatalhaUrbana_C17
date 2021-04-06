@@ -1,6 +1,6 @@
 /**************************************************
   Universidade Federal da Grande Dourados - UFGD
-  Trabalho Computação Gráfica - Batalha Urbana 
+  Trabalho Computação Gráfica - Batalha Urbana
   Bianca Andréia, Fabio Amaral Godoy da Silveira
 **************************************************/
 
@@ -33,7 +33,7 @@ int n1, n2, jogada = 0, rodada = 0, numero_aleatorio, ponto1 = 0, ponto2 = 0, po
             Velocidade_1 = 30, Velocidade_2 = 30, // Velocidade inicial dos projeteis dos canhoes.
             angulo_1 = 85, angulo_2 = 85; // Angulo inicial dos canhoes.
 
-bool bola1 = false, bola2 = false, colisao1 = false, colisao2 = false;
+bool bola1 = false, bola2 = false, colisao1 = false, colisao2 = false, vez1 = false, vez2 = false;
 
 static void Atualiza_tamanho(int w, int h)
 {
@@ -895,6 +895,12 @@ void vez_jogada()
     jogada++;   // Incrementa o número da jogada.
 }
 
+void tempo(int value)
+{
+    Tempo += 0.1;   // O tempo para utilizar na equacao de lancamento oblíquo.
+    glutPostRedisplay();
+}
+
 void LeTeclado(unsigned char tecla, int x, int y)
 {
     switch (tecla)
@@ -910,6 +916,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
         ponto_1 = 0;
         ponto_2 = 0;
         rodada = 0;
+        glLoadIdentity();
         glutPostRedisplay();
     }
 
@@ -922,36 +929,46 @@ void LeTeclado(unsigned char tecla, int x, int y)
         // Movimenta o cano do canhao 1.
         case 'a':
             // Incrementa em 1 o angulo se nao estiver no limite.
-            if(angulo_1 <= 87) angulo_1 = angulo_1 + 1;
-            glutPostRedisplay();
+            if(vez1 == false){
+                if(angulo_1 <= 87) angulo_1 = angulo_1 + 1;
+                glutPostRedisplay();
+            }
+
             break;
 
         case 'd':
             // Decrementa em 1 o angulo se nao estiver no limite.
-            if(angulo_1 >= -87) angulo_1 = angulo_1 - 1;
-            glutPostRedisplay();
+            if(vez1 == false){
+                if(angulo_1 >= -87) angulo_1 = angulo_1 - 1;
+                glutPostRedisplay();
+            }
             break;
 
         case 'w':
             // Incrementa a velocidade do canhao 1.
-            Velocidade_1++;
-            glutPostRedisplay();
+            if(vez1 == false){
+                Velocidade_1++;
+                glutPostRedisplay();
+            }
             break;
 
         case 's':
             // Decrementa a velocidade do canhao 1.
-            Velocidade_1--;
-            glutPostRedisplay();
+            if(vez1 == false){
+                Velocidade_1--;
+                glutPostRedisplay();
+            }
             break;
 
         case 'f':
             // Atira com o canhao 1.
+            vez1 = true;
+            vez2 = false;
             bola1 = true;
             if(bola1)
             {
                 glutPostRedisplay();
             }
-            vez_jogada();   // Alterna jogada.
             break;
         }
     }
@@ -963,46 +980,49 @@ void LeTeclado(unsigned char tecla, int x, int y)
 //########################## CONTROLES PLAYER 2 ##########################
         // Movimenta o cano do canhao 2.
         case 'j':
-            // Incrementa em 1 o angulo se nao estiver no limite.
-            if(angulo_2 <= 87) angulo_2 = angulo_2 + 1;
-            glutPostRedisplay();
+            if(vez2 == false){
+                // Incrementa em 1 o angulo se nao estiver no limite.
+                if(angulo_2 <= 87) angulo_2 = angulo_2 + 1;
+                glutPostRedisplay();
+            }
             break;
 
         case 'l':
-            // Decrementa em 1 o angulo se nao estiver no limite.
-            if(angulo_2 >= -87) angulo_2 = angulo_2 - 1;
-            glutPostRedisplay();
+            if(vez2 == false){
+                // Decrementa em 1 o angulo se nao estiver no limite.
+                if(angulo_2 >= -87) angulo_2 = angulo_2 - 1;
+                glutPostRedisplay();
+            }
             break;
 
         case 'i':
-            // Incrementa a velocidade do canhao 2.
-            Velocidade_2++;
-            glutPostRedisplay();
+            if(vez2 == false){
+                // Incrementa a velocidade do canhao 2.
+                Velocidade_2++;
+                glutPostRedisplay();
+            }
             break;
 
         case 'k':
-            // Decrementa a velocidade do canhao 2.
-            Velocidade_2--;
-            glutPostRedisplay();
+            if(vez2 == false){
+                // Decrementa a velocidade do canhao 2.
+                Velocidade_2--;
+                glutPostRedisplay();
+            }
             break;
 
         case 'h':
             // Atira com o canhao 2.
+            vez1 = false;
+            vez2 = true;
             bola2 = true;
             if(bola2)
             {
                 glutPostRedisplay();
             }
-            vez_jogada();   // Alterna jogada.
             break;
         }
     }
-}
-
-void tempo(int value)
-{
-    Tempo += 0.1;   // O tempo para utilizar na equacao de lancamento oblíquo.
-    glutPostRedisplay();
 }
 
 void tiro_1()
@@ -1020,7 +1040,7 @@ void tiro_1()
     trajetoria_balistica_1();
 
     // Limites para +x, -x e -y para a posicao do projetil.
-    if(posicao_x >= -400.00 && posicao_y >= -200.00 && posicao_x <= 400.00)
+    if(posicao_x >= -400.00 && posicao_y >= -22.00 && posicao_x <= 400.00)
     {
         glTranslatef(posicao_x, posicao_y, 0.0);
         eixo();
@@ -1038,9 +1058,6 @@ void tiro_1()
                 c2_cor = 0.5; // O Carrinho 2 muda de cor ao ser atingido.
             }
 
-            bola1 = false;  // Sai da condicao de tiro.
-            Tempo = 0;
-
             if(ponto1 == 2)
             {
                 c2_cor = 0.0; // O Carrinho 2 muda de cor ao ser atingido.
@@ -1052,6 +1069,9 @@ void tiro_1()
                 glutTimerFunc(1000, tempo, 0.1);
                 nova_rodada();
             }
+            bola1 = false;  // Sai da condicao de tiro.
+            Tempo = 0;
+            vez_jogada();   // Alterna jogada.
         }
 
         if((posicao_x+c1_1 >= 9               && posicao_x+c1_1 <= 9+104         && posicao_y+c1_2 >= -19         && posicao_y+c1_2 <= +5.5)    ||
@@ -1061,12 +1081,14 @@ void tiro_1()
         {
             bola1 = false;  // Colidiu com os predios, sai da condicao de tiro.
             Tempo = 0;
+            vez_jogada();   // Alterna jogada.
         }
     }
     else
     {
         bola1 = false;  // Sai da condicao de tiro.
         Tempo = 0;
+        vez_jogada();   // Alterna jogada.
     }
 }
 
@@ -1085,7 +1107,7 @@ void tiro_2()
     trajetoria_balistica_2();
 
     // Limites para +x, -x e -y para a posicao do projetil.
-    if(posicao_x >= -400.00 && posicao_y >= -200.00 && posicao_x <= 400.00)
+    if(posicao_x >= -400.00 && posicao_y >= -22.00 && posicao_x <= 400.00)
     {
         glTranslatef(posicao_x, posicao_y, 0.0);
         eixo();
@@ -1102,9 +1124,6 @@ void tiro_2()
                 c1_cor = 0.5; // O Carrinho 1 muda de cor ao ser atingido.
             }
 
-            bola2 = false;  // Sai da condicao de tiro.
-            Tempo = 0;
-
             if(ponto2 == 2)
             {
                 c1_cor = 0.0; // O Carrinho 1 muda de cor ao ser atingido.
@@ -1116,6 +1135,10 @@ void tiro_2()
                 glutTimerFunc(1000, tempo, 0.1);
                 nova_rodada();
             }
+            bola2 = false;  // Sai da condicao de tiro.
+            Tempo = 0;
+            vez_jogada();
+
         }
 
         if((posicao_x+c2_1 >= 9               && posicao_x+c2_1 <= 9+104         && posicao_y+c2_2 >= -19         && posicao_y+c2_2 <= +5.5)    ||
@@ -1125,12 +1148,14 @@ void tiro_2()
         {
             bola2 = false;  // Colidiu nos predios, entao sai da condicao de tiro.
             Tempo = 0;
+            vez_jogada();   // Alterna jogada.
         }
     }
     else
     {
         bola2 = false;  // Sai da condicao de tiro.
         Tempo = 0;
+        vez_jogada();   // Alterna jogada.
     }
 }
 
