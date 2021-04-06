@@ -1054,7 +1054,7 @@ void tiro_1()
     }
 
     // Limites para +x, -x e -y para a posicao do projetil.
-    if(posicao_x >= -400.00 && posicao_y >= -22.00 && posicao_x <= 400.00)
+    if(posicao_x >= -400.00 && posicao_y >= -50.00 && posicao_x <= 400.00)
     {
         glTranslatef(posicao_x, posicao_y, 0.0);
         eixo();
@@ -1093,7 +1093,8 @@ void tiro_1()
            (posicao_x+c1_1 >= -200+0     && posicao_x+c1_1 <= -200+70.8     && posicao_y+c1_2 >= 0-19        && posicao_y+c1_2 <= 0+5.5)    ||
            (posicao_x+c1_1 >= -111+0     && posicao_x+c1_1 <= -111+87       && posicao_y+c1_2 >= -1-19       && posicao_y+c1_2 <= -1+5.5)   ||
            (posicao_x+c1_1 >= -200-2     && posicao_x+c1_1 <= -200+2        && posicao_y+c1_2 >= 0-500       && posicao_y+c1_2 <= 0+1000)   ||
-           (posicao_x+c1_1 >= +200-2     && posicao_x+c1_1 <= +200+2        && posicao_y+c1_2 >= 0-500       && posicao_y+c1_2 <= 0+1000))
+           (posicao_x+c1_1 >= +200-2     && posicao_x+c1_1 <= +200+2        && posicao_y+c1_2 >= 0-500       && posicao_y+c1_2 <= 0+1000)   ||
+           (posicao_x+c1_1 >= +0-1000    && posicao_x+c1_1 <= +0+1000       && posicao_y+c1_2 >= -40-2       && posicao_y+c1_2 <= -40+2))
         {
             bola1 = false;  // Colidiu com os predios, sai da condicao de tiro.
             Tempo = 0;
@@ -1126,7 +1127,7 @@ void tiro_2()
     }
 
     // Limites para +x, -x e -y para a posicao do projetil.
-    if(posicao_x >= -400.00 && posicao_y >= -22.00 && posicao_x <= 400.00)
+    if(posicao_x >= -400.00 && posicao_y >= -50.00 && posicao_x <= 400.00)
     {
         glTranslatef(posicao_x, posicao_y, 0.0);
         eixo();
@@ -1165,7 +1166,8 @@ void tiro_2()
            (posicao_x+c2_1 >= -200+0     && posicao_x+c2_1 <= -200+70.8     && posicao_y+c2_2 >= 0-19        && posicao_y+c2_2 <= 0+5.5)   ||
            (posicao_x+c2_1 >= -111+0     && posicao_x+c2_1 <= -111+87       && posicao_y+c2_2 >= -1-19       && posicao_y+c2_2 <= -1+5.5)  ||
            (posicao_x+c2_1 >= -200-2     && posicao_x+c2_1 <= -200+2        && posicao_y+c2_2 >= 0-500       && posicao_y+c2_2 <= 0+1000)  ||
-           (posicao_x+c2_1 >= +200-2     && posicao_x+c2_1 <= +200+2        && posicao_y+c2_2 >= 0-500       && posicao_y+c2_2 <= 0+1000))
+           (posicao_x+c2_1 >= +200-2     && posicao_x+c2_1 <= +200+2        && posicao_y+c2_2 >= 0-500       && posicao_y+c2_2 <= 0+1000)  ||
+           (posicao_x+c2_1 >= +0-1000    && posicao_x+c2_1 <= +0+1000       && posicao_y+c2_2 >= -40-2       && posicao_y+c2_2 <= -40+2))
         {
             bola2 = false;  // Colidiu nos predios, entao sai da condicao de tiro.
             Tempo = 0;
