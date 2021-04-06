@@ -1,3 +1,9 @@
+/**************************************************
+  Universidade Federal da Grande Dourados - UFGD
+  Trabalho Computação Gráfica - Batalha Urbana 
+  Bianca Andréia, Fabio Amaral Godoy da Silveira
+**************************************************/
+
 #include <GL/glut.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -23,7 +29,7 @@ float tam = 3.5f, Tempo = 0,
       c2_cor = 1,                // Para a cor do Carrinho 2.
       c1_1, c1_2, c2_1, c2_2;    // Coordenadas de spawn dos carrinhos.
 
-int n1, n2, jogada = 0, rodada = 0, numero_aleatorio, ponto1 = 0, ponto2 = 0,
+int n1, n2, jogada = 0, rodada = 0, numero_aleatorio, ponto1 = 0, ponto2 = 0, ponto_1 = 0, ponto_2 = 0,
             Velocidade_1 = 30, Velocidade_2 = 30, // Velocidade inicial dos projeteis dos canhoes.
             angulo_1 = 85, angulo_2 = 85; // Angulo inicial dos canhoes.
 
@@ -901,6 +907,9 @@ void LeTeclado(unsigned char tecla, int x, int y)
     case 'b':
         // Novo jogo.
         nova_rodada();
+        ponto_1 = 0;
+        ponto_2 = 0;
+        rodada = 0;
         glutPostRedisplay();
     }
 
@@ -1014,7 +1023,6 @@ void tiro_1()
     if(posicao_x >= -400.00 && posicao_y >= -200.00 && posicao_x <= 400.00)
     {
         glTranslatef(posicao_x, posicao_y, 0.0);
-        printf("\nbola1(%.2f,%.2f), tank2(%.2f,%.2f)",posicao_x, posicao_y, c2_1, c2_2);
         eixo();
         glutTimerFunc(30, tempo, 0);
 
@@ -1023,6 +1031,7 @@ void tiro_1()
         {
             colisao1 = true;
             ponto1++;
+            ponto_1++;
 
             if(ponto1 == 1)
             {
@@ -1079,7 +1088,6 @@ void tiro_2()
     if(posicao_x >= -400.00 && posicao_y >= -200.00 && posicao_x <= 400.00)
     {
         glTranslatef(posicao_x, posicao_y, 0.0);
-        printf("\nbola1(%.2f,%.2f), tank2(%.2f,%.2f)",posicao_x, posicao_y, c2_1, c2_2);
         eixo();
         glutTimerFunc(30, tempo, 0);
 
@@ -1087,6 +1095,7 @@ void tiro_2()
         {
             colisao2 = true;
             ponto2++;
+            ponto_2++;
 
             if(ponto2 == 1)
             {
@@ -1234,7 +1243,7 @@ void texto()
     renderbitmap(-39,28,GLUT_BITMAP_HELVETICA_10, buf);
 
     // Informacoes da partida.
-    sprintf_s(buf,"RODADA %d   (PLAYER 1) %d x %d (PLAYER 2)", rodada+1, ponto1,ponto2);
+    sprintf_s(buf,"RODADA %d   (PLAYER 1) %d x %d (PLAYER 2)", rodada+1, ponto_1,ponto_2);
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(15,38,GLUT_BITMAP_HELVETICA_18, buf);
 
