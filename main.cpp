@@ -887,6 +887,9 @@ void nova_rodada()
     c1_cor = 1;
     c2_cor = 1;
 
+    vez1 = false;
+    vez2 = false;
+
     rodada++;
 }
 
