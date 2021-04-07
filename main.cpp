@@ -931,9 +931,9 @@ void LeTeclado(unsigned char tecla, int x, int y)
 //########################## CONTROLES PLAYER 1 ##########################
         // Movimenta o cano do canhao 1.
         case 'a':
-            // Incrementa em 1 o angulo se nao estiver no limite.
-            if(vez1 == false)
+            if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
+                // Incrementa em 1 o angulo se nao estiver no limite.
                 if(angulo_1 <= 87) angulo_1 = angulo_1 + 1;
                 glutPostRedisplay();
             }
@@ -941,28 +941,28 @@ void LeTeclado(unsigned char tecla, int x, int y)
             break;
 
         case 'd':
-            // Decrementa em 1 o angulo se nao estiver no limite.
-            if(vez1 == false)
+            if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
+                 // Decrementa em 1 o angulo se nao estiver no limite.
                 if(angulo_1 >= -87) angulo_1 = angulo_1 - 1;
                 glutPostRedisplay();
             }
             break;
 
         case 'w':
-            // Incrementa a velocidade do canhao 1.
-            if(vez1 == false)
+            if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
-                Velocidade_1++;
+                // Incrementa em 1 a velocidade do canhao 1.
+                if(Velocidade_1 >= 1) Velocidade_1 = Velocidade_1 + 1;
                 glutPostRedisplay();
             }
             break;
 
         case 's':
-            // Decrementa a velocidade do canhao 1.
-            if(vez1 == false)
+            if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
-                Velocidade_1--;
+                // Decrementa em 1 a velocidade do canhao 1.
+                if(Velocidade_1 >= 1) Velocidade_1 = Velocidade_1 - 1;
                 glutPostRedisplay();
             }
             break;
@@ -987,7 +987,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
 //########################## CONTROLES PLAYER 2 ##########################
         // Movimenta o cano do canhao 2.
         case 'j':
-            if(vez2 == false)
+            if(vez2 == false) // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
                 // Incrementa em 1 o angulo se nao estiver no limite.
                 if(angulo_2 <= 87) angulo_2 = angulo_2 + 1;
@@ -996,7 +996,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
             break;
 
         case 'l':
-            if(vez2 == false)
+            if(vez2 == false)   // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
                 // Decrementa em 1 o angulo se nao estiver no limite.
                 if(angulo_2 >= -87) angulo_2 = angulo_2 - 1;
@@ -1005,19 +1005,19 @@ void LeTeclado(unsigned char tecla, int x, int y)
             break;
 
         case 'i':
-            if(vez2 == false)
+            if(vez2 == false)   // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
-                // Incrementa a velocidade do canhao 2.
-                Velocidade_2++;
+                // Incrementa em 1 a velocidade do canhao 2.
+                if(Velocidade_2 >= 1) Velocidade_2 = Velocidade_2 + 1;
                 glutPostRedisplay();
             }
             break;
 
         case 'k':
-            if(vez2 == false)
+            if(vez2 == false)   // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
-                // Decrementa a velocidade do canhao 2.
-                Velocidade_2--;
+                // Decrementa em 1 a velocidade do canhao 2.
+                if(Velocidade_2 >= 1) Velocidade_2 = Velocidade_2 - 1;
                 glutPostRedisplay();
             }
             break;
@@ -1047,7 +1047,7 @@ void tiro_1()
           posicao_x = 0.0 + x,
           posicao_y = 2.0 + y; // Posicao (x,y) do projetil.
 
-    // Mostra a trajetoria do projetil.
+    // Mostra a trajetoria do projetil durante o tiro.
     if(bola1 == true)
     {
         trajetoria_balistica_1();
@@ -1064,8 +1064,8 @@ void tiro_1()
         if(posicao_x+c1_1 >= c2_1-4 && posicao_x+c1_1 <= c2_1+4 && posicao_y+c1_2 >= c2_2-2 && posicao_y+c1_2 <= c2_2+6)
         {
             colisao1 = true;
-            ponto1++;
-            ponto_1++;
+            ponto1++;   // Pontuacao para alterar a cor do carrinho.
+            ponto_1++;  // Pontuacao para mostrar na tela.
 
             if(ponto1 == 1)
             {
@@ -1077,7 +1077,7 @@ void tiro_1()
                 c2_cor = 0.0; // O Carrinho 2 muda de cor ao ser atingido.
             }
 
-            if(ponto1 == 3)   // No terceiro ponto, inicia uma nova partida.
+            if(ponto1 == 3)   // No terceiro ponto, depois de um tempo, inicia uma nova partida.
             {
                 glutTimerFunc(1000, tempo, 0.1);
                 glutTimerFunc(1000, tempo, 0.1);
@@ -1088,15 +1088,36 @@ void tiro_1()
             vez_jogada();   // Alterna jogada.
         }
 
-        if((posicao_x+c1_1 >= 9          && posicao_x+c1_1 <= 9+104         && posicao_y+c1_2 >= -19         && posicao_y+c1_2 <= +5.5)     ||
-           (posicao_x+c1_1 >= 128+0      && posicao_x+c1_1 <= 128+60        && posicao_y+c1_2 >= 0-19        && posicao_y+c1_2 <= 0+5.5)    ||
-           (posicao_x+c1_1 >= -200+0     && posicao_x+c1_1 <= -200+70.8     && posicao_y+c1_2 >= 0-19        && posicao_y+c1_2 <= 0+5.5)    ||
-           (posicao_x+c1_1 >= -111+0     && posicao_x+c1_1 <= -111+87       && posicao_y+c1_2 >= -1-19       && posicao_y+c1_2 <= -1+5.5)   ||
-           (posicao_x+c1_1 >= -200-2     && posicao_x+c1_1 <= -200+2        && posicao_y+c1_2 >= 0-500       && posicao_y+c1_2 <= 0+1000)   ||
-           (posicao_x+c1_1 >= +200-2     && posicao_x+c1_1 <= +200+2        && posicao_y+c1_2 >= 0-500       && posicao_y+c1_2 <= 0+1000)   ||
-           (posicao_x+c1_1 >= +0-1000    && posicao_x+c1_1 <= +0+1000       && posicao_y+c1_2 >= -40-2       && posicao_y+c1_2 <= -40+2))
+        if( (posicao_x+c1_1 >= -30-7          && posicao_x+c1_1 <= -30+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= -45-7          && posicao_x+c1_1 <= -45+7         && posicao_y+c1_2 >= -3-15         && posicao_y+c1_2 <= -3+15)     ||
+            (posicao_x+c1_1 >= -70-7          && posicao_x+c1_1 <= -70+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+            (posicao_x+c1_1 >= -75-7          && posicao_x+c1_1 <= -75+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= -90-7          && posicao_x+c1_1 <= -90+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+            (posicao_x+c1_1 >= -105-7         && posicao_x+c1_1 <= -105+7        && posicao_y+c1_2 >= -12-15        && posicao_y+c1_2 <= -12+15)    ||
+            (posicao_x+c1_1 >= -135-7         && posicao_x+c1_1 <= -135+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= -150-7         && posicao_x+c1_1 <= -150+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+            (posicao_x+c1_1 >= -175-7         && posicao_x+c1_1 <= -175+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= -180-7         && posicao_x+c1_1 <= -180+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+            (posicao_x+c1_1 >= -195-7         && posicao_x+c1_1 <= -195+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= -195-7         && posicao_x+c1_1 <= -195+7        && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
+            (posicao_x+c1_1 >= +15-7          && posicao_x+c1_1 <= +15+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= +30-7          && posicao_x+c1_1 <= +30+7         && posicao_y+c1_2 >= -8.5-15       && posicao_y+c1_2 <= -8.5+15)   ||
+            (posicao_x+c1_1 >= +45-7          && posicao_x+c1_1 <= +45+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= 45-7           && posicao_x+c1_1 <= 45+7          && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
+            (posicao_x+c1_1 >= +70-7          && posicao_x+c1_1 <= +70+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+            (posicao_x+c1_1 >= +75-7          && posicao_x+c1_1 <= +75+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= 90-7           && posicao_x+c1_1 <= 90+7          && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= 90-7           && posicao_x+c1_1 <= 90+7          && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
+            (posicao_x+c1_1 >= +105-7         && posicao_x+c1_1 <= +105+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+            (posicao_x+c1_1 >= +135-7         && posicao_x+c1_1 <= +135+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+            (posicao_x+c1_1 >= +150-7         && posicao_x+c1_1 <= +150+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= +175-7         && posicao_x+c1_1 <= +175+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= +180-7         && posicao_x+c1_1 <= +180+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+            (posicao_x+c1_1 >= +205-7         && posicao_x+c1_1 <= +205+7        && posicao_y+c1_2 >= -7.5-1500     && posicao_y+c1_2 <= -7.5+1500) ||
+            (posicao_x+c1_1 >= -205-7         && posicao_x+c1_1 <= -205+7        && posicao_y+c1_2 >= -7.5-1500     && posicao_y+c1_2 <= -7.5+1500) ||
+            (posicao_x+c1_1 >= +0-1000        && posicao_x+c1_1 <= +0+1000       && posicao_y+c1_2 >= -40-7         && posicao_y+c1_2 <= -40+24))
         {
-            bola1 = false;  // Colidiu com os predios, sai da condicao de tiro.
+            bola1 = false;  // Colidiu nos predios ou nas bordas laterais/inferior, entao sai da condicao de tiro.
             Tempo = 0;
             vez_jogada();   // Alterna jogada.
         }
@@ -1122,7 +1143,7 @@ void tiro_2()
 
     if(bola2 == true)
     {
-        // Mostra a trajetoria do projetil.
+        // Mostra a trajetoria do projetil durante o tiro.
         trajetoria_balistica_2();
     }
 
@@ -1136,8 +1157,8 @@ void tiro_2()
         if(posicao_x+c2_1 >= c1_1-4 && posicao_x+c2_1 <= c1_1+4 && posicao_y+c2_2 >= c1_2-2 && posicao_y+c2_2 <= c1_2+6)
         {
             colisao2 = true;
-            ponto2++;
-            ponto_2++;
+            ponto2++;   // Pontuacao para alterar a cor do carrinho.
+            ponto_2++;  // Pontuacao para mostrar na tela.
 
             if(ponto2 == 1)
             {
@@ -1149,7 +1170,7 @@ void tiro_2()
                 c1_cor = 0.0; // O Carrinho 1 muda de cor ao ser atingido.
             }
 
-            if(ponto2 == 3)   // No terceiro ponto, inicia uma nova partida.
+            if(ponto2 == 3)   // No terceiro ponto, depois de um tempo, inicia uma nova partida.
             {
                 glutTimerFunc(1000, tempo, 0.1);
                 glutTimerFunc(1000, tempo, 0.1);
@@ -1161,15 +1182,36 @@ void tiro_2()
 
         }
 
-        if((posicao_x+c2_1 >= 9          && posicao_x+c2_1 <= 9+104         && posicao_y+c2_2 >= -19         && posicao_y+c2_2 <= +5.5)    ||
-           (posicao_x+c2_1 >= 128+0      && posicao_x+c2_1 <= 128+60        && posicao_y+c2_2 >= 0-19        && posicao_y+c2_2 <= 0+5.5)   ||
-           (posicao_x+c2_1 >= -200+0     && posicao_x+c2_1 <= -200+70.8     && posicao_y+c2_2 >= 0-19        && posicao_y+c2_2 <= 0+5.5)   ||
-           (posicao_x+c2_1 >= -111+0     && posicao_x+c2_1 <= -111+87       && posicao_y+c2_2 >= -1-19       && posicao_y+c2_2 <= -1+5.5)  ||
-           (posicao_x+c2_1 >= -200-2     && posicao_x+c2_1 <= -200+2        && posicao_y+c2_2 >= 0-500       && posicao_y+c2_2 <= 0+1000)  ||
-           (posicao_x+c2_1 >= +200-2     && posicao_x+c2_1 <= +200+2        && posicao_y+c2_2 >= 0-500       && posicao_y+c2_2 <= 0+1000)  ||
-           (posicao_x+c2_1 >= +0-1000    && posicao_x+c2_1 <= +0+1000       && posicao_y+c2_2 >= -40-2       && posicao_y+c2_2 <= -40+2))
+        if( (posicao_x+c2_1 >= -30-7          && posicao_x+c2_1 <= -30+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= -45-7          && posicao_x+c2_1 <= -45+7         && posicao_y+c2_2 >= -3-15         && posicao_y+c2_2 <= -3+15)     ||
+            (posicao_x+c2_1 >= -70-7          && posicao_x+c2_1 <= -70+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+            (posicao_x+c2_1 >= -75-7          && posicao_x+c2_1 <= -75+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= -90-7          && posicao_x+c2_1 <= -90+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+            (posicao_x+c2_1 >= -105-7         && posicao_x+c2_1 <= -105+7        && posicao_y+c2_2 >= -12-15        && posicao_y+c2_2 <= -12+15)    ||
+            (posicao_x+c2_1 >= -135-7         && posicao_x+c2_1 <= -135+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= -150-7         && posicao_x+c2_1 <= -150+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+            (posicao_x+c2_1 >= -175-7         && posicao_x+c2_1 <= -175+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= -180-7         && posicao_x+c2_1 <= -180+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+            (posicao_x+c2_1 >= -195-7         && posicao_x+c2_1 <= -195+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= -195-7         && posicao_x+c2_1 <= -195+7        && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
+            (posicao_x+c2_1 >= +15-7          && posicao_x+c2_1 <= +15+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= +30-7          && posicao_x+c2_1 <= +30+7         && posicao_y+c2_2 >= -8.5-15       && posicao_y+c2_2 <= -8.5+15)   ||
+            (posicao_x+c2_1 >= +45-7          && posicao_x+c2_1 <= +45+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= 45-7           && posicao_x+c2_1 <= 45+7          && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
+            (posicao_x+c2_1 >= +70-7          && posicao_x+c2_1 <= +70+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+            (posicao_x+c2_1 >= +75-7          && posicao_x+c2_1 <= +75+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= 90-7           && posicao_x+c2_1 <= 90+7          && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= 90-7           && posicao_x+c2_1 <= 90+7          && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
+            (posicao_x+c2_1 >= +105-7         && posicao_x+c2_1 <= +105+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+            (posicao_x+c2_1 >= +135-7         && posicao_x+c2_1 <= +135+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+            (posicao_x+c2_1 >= +150-7         && posicao_x+c2_1 <= +150+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= +175-7         && posicao_x+c2_1 <= +175+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= +180-7         && posicao_x+c2_1 <= +180+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+            (posicao_x+c2_1 >= +205-7         && posicao_x+c2_1 <= +205+7        && posicao_y+c2_2 >= -7.5-1500     && posicao_y+c2_2 <= -7.5+1500) ||
+            (posicao_x+c2_1 >= -205-7         && posicao_x+c2_1 <= -205+7        && posicao_y+c2_2 >= -7.5-1500     && posicao_y+c2_2 <= -7.5+1500) ||
+            (posicao_x+c2_1 >= +0-1000        && posicao_x+c2_1 <= +0+1000       && posicao_y+c2_2 >= -40-7         && posicao_y+c2_2 <= -40+24))
         {
-            bola2 = false;  // Colidiu nos predios, entao sai da condicao de tiro.
+            bola2 = false;  // Colidiu nos predios ou nas bordas laterais/inferior, entao sai da condicao de tiro.
             Tempo = 0;
             vez_jogada();   // Alterna jogada.
         }
