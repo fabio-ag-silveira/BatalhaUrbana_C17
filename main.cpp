@@ -768,8 +768,8 @@ void spawn_carrinho_1()
 
     case 2:
         // Posicao 3.
-        glTranslatef(0,-16,0.0);
-        c1_1 = 0;
+        glTranslatef(-17,-16,0.0);
+        c1_1 = -17;
         c1_2 = -16;
         desenha_carrinho_1();
         break;
@@ -1162,7 +1162,7 @@ void tiro_2()
             ponto_2++;  // Pontuacao para mostrar na tela.
             bola2 = false;  // Sai da condicao de tiro.
             Tempo = 0;
-            vez_jogada();
+            vez_jogada();    // Alterna jogada.
 
             if(ponto2 == 1)
             {
