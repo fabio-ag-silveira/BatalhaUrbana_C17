@@ -1095,7 +1095,7 @@ void tiro_1()
             (posicao_x+c1_1 >= -90-7          && posicao_x+c1_1 <= -90+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= -105-7         && posicao_x+c1_1 <= -105+7        && posicao_y+c1_2 >= -12-15        && posicao_y+c1_2 <= -12+15)    ||
             (posicao_x+c1_1 >= -135-7         && posicao_x+c1_1 <= -135+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= -140-7         && posicao_x+c1_1 <= -140+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+            (posicao_x+c1_1 >= -150-7         && posicao_x+c1_1 <= -150+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= -165-7         && posicao_x+c1_1 <= -165+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
             (posicao_x+c1_1 >= -180-7         && posicao_x+c1_1 <= -180+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= -195-7         && posicao_x+c1_1 <= -195+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
@@ -1188,7 +1188,7 @@ void tiro_2()
             (posicao_x+c2_1 >= -90-7          && posicao_x+c2_1 <= -90+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= -105-7         && posicao_x+c2_1 <= -105+7        && posicao_y+c2_2 >= -12-15        && posicao_y+c2_2 <= -12+15)    ||
             (posicao_x+c2_1 >= -135-7         && posicao_x+c2_1 <= -135+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= -140-7         && posicao_x+c2_1 <= -140+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+            (posicao_x+c2_1 >= -150-7         && posicao_x+c2_1 <= -150+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= -165-7         && posicao_x+c2_1 <= -165+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
             (posicao_x+c2_1 >= -180-7         && posicao_x+c2_1 <= -180+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= -195-7         && posicao_x+c2_1 <= -195+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
