@@ -195,7 +195,7 @@ void eixo()
 // -------------- Desenhos --------------
 void desenha_predio_maior()
 {
-    glColor3f(0.0,0.5,0.5);
+    glColor3f(0.5,0.5,0.5);
     predio_maior();
 
     // Primeiro par de janelas.
@@ -260,7 +260,7 @@ void desenha_predio_maior()
 
 void desenha_predio_menor()
 {
-    glColor3f(0.0,0.0,0.0);
+    glColor3f(0.2,0.2,0.2);
     predio_menor();
 
     // Primeiro par de janelas.
@@ -329,7 +329,7 @@ void desenha_torre()
 
     // Teto
     glTranslatef(0,14.0,0.0);
-    glColor3f(0.0,0.0,0.0);
+    glColor3f(0.1,0.1,0.1);
     triang();
 
     // Porta
@@ -392,7 +392,31 @@ void desenha_citadel()
     janela();
 
     glTranslatef(6,0,0.0);
+    glColor3f(0.1,0.1,0.1);
+    janela();
+
+    glTranslatef(-6,-2.0,0.0);
     glColor3f(0.0,0.0,0.0);
+    janela();
+
+    glTranslatef(6,0,0.0);
+    glColor3f(0.1,0.1,0.1);
+    janela();
+
+    glTranslatef(-6,-2.0,0.0);
+    glColor3f(0.0,0.0,0.0);
+    janela();
+
+    glTranslatef(6,0,0.0);
+    glColor3f(0.1,0.1,0.1);
+    janela();
+
+    glTranslatef(-6,-2.0,0.0);
+    glColor3f(0.0,0.0,0.0);
+    janela();
+
+    glTranslatef(6,0,0.0);
+    glColor3f(0.1,0.1,0.1);
     janela();
 
     glTranslatef(-6,-2.0,0.0);
@@ -409,30 +433,6 @@ void desenha_citadel()
 
     glTranslatef(6,0,0.0);
     glColor3f(0.0,0.0,0.0);
-    janela();
-
-    glTranslatef(-6,-2.0,0.0);
-    glColor3f(0.0,0.0,0.0);
-    janela();
-
-    glTranslatef(6,0,0.0);
-    glColor3f(0.0,0.0,0.0);
-    janela();
-
-    glTranslatef(-6,-2.0,0.0);
-    glColor3f(0.0,0.0,0.0);
-    janela();
-
-    glTranslatef(6,0,0.0);
-    glColor3f(0.0,0.0,0.0);
-    janela();
-
-    glTranslatef(-6,-2.0,0.0);
-    glColor3f(0.0,0.0,0.0);
-    janela();
-
-    glTranslatef(6,0,0.0);
-    glColor3f(1.0,0.0,0.0);
     glPopMatrix();
 
 //------------- Meio -------------
@@ -470,7 +470,7 @@ void desenha_citadel()
     janela();
 
     glTranslatef(6,0,0.0);
-    glColor3f(0.0,0.0,0.0);
+    glColor3f(0.1,0.1,0.1);
     janela();
 
     glTranslatef(-6,-2.0,0.0);
@@ -478,7 +478,7 @@ void desenha_citadel()
     janela();
 
     glTranslatef(6,0,0.0);
-    glColor3f(0.0,0.0,0.0);
+    glColor3f(0.1,0.1,0.1);
     janela();
 
     glTranslatef(-6,-2.0,0.0);
@@ -495,7 +495,7 @@ void desenha_citadel()
     glPopMatrix();
 
     glTranslatef(-10,20.0,0.0);
-    glColor3f(0.0,0.0,0.0);
+    glColor3f(0.1,0.1,0.1);
     glPushMatrix();
     glScalef(0.8,0.6,0.0);
 
@@ -934,7 +934,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
             if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
                 // Incrementa em 1 o angulo se nao estiver no limite.
-                if(angulo_1 <= 87) angulo_1 = angulo_1 + 1;
+                if(angulo_1 <= 87) angulo_1 = angulo_1 + 3;
                 glutPostRedisplay();
             }
             break;
@@ -943,7 +943,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
             if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
                 // Decrementa em 1 o angulo se nao estiver no limite.
-                if(angulo_1 >= -87) angulo_1 = angulo_1 - 1;
+                if(angulo_1 >= -87) angulo_1 = angulo_1 - 3;
                 glutPostRedisplay();
             }
             break;
@@ -989,7 +989,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
             if(vez2 == false) // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
                 // Incrementa em 1 o angulo se nao estiver no limite.
-                if(angulo_2 <= 87) angulo_2 = angulo_2 + 1;
+                if(angulo_2 <= 87) angulo_2 = angulo_2 + 3;
                 glutPostRedisplay();
             }
             break;
@@ -998,7 +998,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
             if(vez2 == false)   // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
                 // Decrementa em 1 o angulo se nao estiver no limite.
-                if(angulo_2 >= -87) angulo_2 = angulo_2 - 1;
+                if(angulo_2 >= -87) angulo_2 = angulo_2 - 3;
                 glutPostRedisplay();
             }
             break;
