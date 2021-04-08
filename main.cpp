@@ -1067,17 +1067,26 @@ void tiro_1()
             ponto1++;   // Pontuacao para alterar a cor do carrinho.
             ponto_1++;  // Pontuacao para mostrar na tela.
             bola1 = false;  // Sai da condicao de tiro.
+
             Tempo = 0;
             vez_jogada();   // Alterna jogada.
 
             if(ponto1 == 1)
             {
                 c2_cor = 0.5; // O Carrinho 2 muda de cor ao ser atingido.
+                srand(time(NULL));
+                // Gera números aleatorios de 0 a 3, para definir as novas posicoes dos carrinhos.
+                n1 = rand()%4;
+                n2 = rand()%4;
             }
 
             if(ponto1 == 2)
             {
                 c2_cor = 0.0; // O Carrinho 2 muda de cor ao ser atingido.
+                srand(time(NULL));
+                // Gera números aleatorios de 0 a 3, para definir as novas posicoes dos carrinhos.
+                n1 = rand()%4;
+                n2 = rand()%4;
             }
 
             if(ponto1 == 3)   // No terceiro ponto, depois de um tempo, inicia uma nova partida.
@@ -1085,7 +1094,6 @@ void tiro_1()
                 glutTimerFunc(1000, tempo, 0.1);
                 glutTimerFunc(1000, tempo, 0.1);
                 nova_rodada();
-                jogada = 0;
             }
         }
 
@@ -1167,11 +1175,19 @@ void tiro_2()
             if(ponto2 == 1)
             {
                 c1_cor = 0.5; // O Carrinho 1 muda de cor ao ser atingido.
+                srand(time(NULL));
+                // Gera números aleatorios de 0 a 3, para definir as novas posicoes dos carrinhos.
+                n1 = rand()%4;
+                n2 = rand()%4;
             }
 
             if(ponto2 == 2)
             {
                 c1_cor = 0.0; // O Carrinho 1 muda de cor ao ser atingido.
+                srand(time(NULL));
+                // Gera números aleatorios de 0 a 3, para definir as novas posicoes dos carrinhos.
+                n1 = rand()%4;
+                n2 = rand()%4;
             }
 
             if(ponto2 == 3)   // No terceiro ponto, depois de um tempo, inicia uma nova partida.
