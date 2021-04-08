@@ -7,8 +7,6 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <fstream>
-#include <iostream>
 #include <math.h>
 #include <time.h>
 #define PI 3.14159265
@@ -1289,70 +1287,70 @@ void texto()
     if(jogada%2 == 0) // Se a jogada for par, e a vez do Player 1.
     {
         glColor3f(0.0f, 1.0f, 1.0f);
-        sprintf_s(buf,"Velocidade: %d m/s, Angulo: %d", Velocidade_1, angulo_1+90);
+        sprintf(buf,"Velocidade: %d m/s, Angulo: %d", Velocidade_1, angulo_1+90);
         renderbitmap(-39,38,GLUT_BITMAP_HELVETICA_18, buf);
     }
     // Controles do Player 1.
-    sprintf_s(buf,"(PLAYER 1)");
+    sprintf(buf,"(PLAYER 1)");
     glColor3f(0.0f, 1.0f, 1.0f);
     renderbitmap(-39,36,GLUT_BITMAP_HELVETICA_10, buf);
-    sprintf_s(buf,"+ VELOCIDADE:    W");
+    sprintf(buf,"+ VELOCIDADE:    W");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,35,GLUT_BITMAP_HELVETICA_10, buf);
-    sprintf_s(buf,"- VELOCIDADE:    S");
+    sprintf(buf,"- VELOCIDADE:    S");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,34,GLUT_BITMAP_HELVETICA_10, buf);
-    sprintf_s(buf,"+ ANGULO:            D");
+    sprintf(buf,"+ ANGULO:            D");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,33,GLUT_BITMAP_HELVETICA_10, buf);
-    sprintf_s(buf,"- ANGULO:            A");
+    sprintf(buf,"- ANGULO:            A");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,32,GLUT_BITMAP_HELVETICA_10, buf);
-    sprintf_s(buf,"ATIRAR:                  F");
+    sprintf(buf,"ATIRAR:                  F");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,31,GLUT_BITMAP_HELVETICA_10, buf);
 
     if(jogada%2 != 0)   // Se a jogada for impar, e a vez do Player 2.
     {
         glColor3f(0.5,0.0,0.0);
-        sprintf_s(buf,"Velocidade: %d m/s, Angulo: %d", Velocidade_2, angulo_2+90);
+        sprintf(buf,"Velocidade: %d m/s, Angulo: %d", Velocidade_2, angulo_2+90);
         renderbitmap(-39,38,GLUT_BITMAP_HELVETICA_18, buf);
     }
 
     // Controles do Player 2.
-    sprintf_s(buf,"(PLAYER 2)");
+    sprintf(buf,"(PLAYER 2)");
     glColor3f(0.5,0.0,0.0);
     renderbitmap(-25,36,GLUT_BITMAP_HELVETICA_10, buf);
-    sprintf_s(buf,"+ VELOCIDADE:    I");
+    sprintf(buf,"+ VELOCIDADE:    I");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-25,35,GLUT_BITMAP_HELVETICA_10, buf);
-    sprintf_s(buf,"- VELOCIDADE:    K");
+    sprintf(buf,"- VELOCIDADE:    K");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-25,34,GLUT_BITMAP_HELVETICA_10, buf);
-    sprintf_s(buf,"+ ANGULO:            J");
+    sprintf(buf,"+ ANGULO:            J");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-25,33,GLUT_BITMAP_HELVETICA_10, buf);
-    sprintf_s(buf,"- ANGULO:            L");
+    sprintf(buf,"- ANGULO:            L");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-25,32,GLUT_BITMAP_HELVETICA_10, buf);
-    sprintf_s(buf,"ATIRAR:                  H");
+    sprintf(buf,"ATIRAR:                  H");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-25,31,GLUT_BITMAP_HELVETICA_10, buf);
 
-    sprintf_s(buf,"NOVO JOGO:         B");
+    sprintf(buf,"NOVO JOGO:         B");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,29,GLUT_BITMAP_HELVETICA_10, buf);
 
-    sprintf_s(buf,"SAIR:                      Q");
+    sprintf(buf,"SAIR:                      Q");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,28,GLUT_BITMAP_HELVETICA_10, buf);
 
     // Informacoes da partida.
-    sprintf_s(buf,"RODADA %d   (PLAYER 1) %d x %d (PLAYER 2)", rodada+1, ponto_1,ponto_2);
+    sprintf(buf,"RODADA %d   (PLAYER 1) %d x %d (PLAYER 2)", rodada+1, ponto_1,ponto_2);
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(15,38,GLUT_BITMAP_HELVETICA_18, buf);
 
-    sprintf_s(buf,"*O primeiro a marcar 3 pontos, ganha a rodada.");
+    sprintf(buf,"*O primeiro a marcar 3 pontos, ganha a rodada.");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(15,36,GLUT_BITMAP_HELVETICA_10, buf);
 }
