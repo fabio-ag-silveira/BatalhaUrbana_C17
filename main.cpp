@@ -29,11 +29,11 @@ float tam = 3.5f, Tempo = 0,
       c2_cor = 1,                // Para a cor do Carrinho 2.
       c1_1, c1_2, c2_1, c2_2;    // Coordenadas de spawn dos carrinhos.
 
-int n1, n2, jogada = 0, rodada = 0, numero_aleatorio, ponto1 = 0, ponto2 = 0, ponto_1 = 0, ponto_2 = 0,
+int n1, n2, jogada = 0, rodada = 0, numero_aleatorio, ponto1 = 0, ponto2 = 0, ponto_1 = 0, ponto_2 = 0, aux = 0,
             Velocidade_1 = 30, Velocidade_2 = 30, // Velocidade inicial dos projeteis dos canhoes.
             angulo_1 = 85, angulo_2 = 85; // Angulo inicial dos canhoes.
 
-bool bola1 = false, bola2 = false, colisao1 = false, colisao2 = false, vez1 = false, vez2 = false;
+bool bola1 = false, bola2 = false, colisao1 = false, colisao2 = false, vez1 = false, vez2 = false, mira = false;
 
 static void Atualiza_tamanho(int w, int h)
 {
@@ -685,7 +685,11 @@ void desenha_carrinho_1()
     glTranslatef(0,-tam/2,0.0);
     glColor3f(0.0f, 1.0f, 1.0f);
 
-    //trajetoria_balistica_1();
+
+    if(mira == true)
+    {
+        trajetoria_balistica_1();
+    }
 
     if(bola1 == true)
     {
@@ -735,7 +739,10 @@ void desenha_carrinho_2()
     glTranslatef(0,-tam/2,0.0);
     glColor3f(1,0,0);
 
-    //trajetoria_balistica_2();
+    if(mira == true)
+    {
+        trajetoria_balistica_2();
+    }
 
     if(bola2 == true)
     {
@@ -889,6 +896,7 @@ void nova_rodada()
 
     vez1 = false;
     vez2 = false;
+    mira = false;
 
     rodada++;
 }
@@ -919,8 +927,16 @@ void LeTeclado(unsigned char tecla, int x, int y)
         ponto_1 = 0;
         ponto_2 = 0;
         rodada = 0;
-        glLoadIdentity();
         glutPostRedisplay();
+        break;
+
+    case 'm':
+        // Ativa/desativa a mira.
+        aux++;
+        if(aux%2 != 0){mira = true;}
+        if(aux%2 == 0){mira = false;}
+        glutPostRedisplay();
+        break;
     }
 
     if(jogada%2 == 0)   // Se a jogada for par, e a vez do Player 1.
@@ -1324,13 +1340,17 @@ void texto()
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-25,31,GLUT_BITMAP_HELVETICA_10, buf);
 
-    sprintf_s(buf,"NOVO JOGO:         B");
+
+    sprintf_s(buf,"MIRA:                     M");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,29,GLUT_BITMAP_HELVETICA_10, buf);
+    sprintf_s(buf,"NOVO JOGO:         B");
+    glColor3f(0.0f, 0.0f, 0.0f);
+    renderbitmap(-39,27,GLUT_BITMAP_HELVETICA_10, buf);
 
     sprintf_s(buf,"SAIR:                      Q");
     glColor3f(0.0f, 0.0f, 0.0f);
-    renderbitmap(-39,28,GLUT_BITMAP_HELVETICA_10, buf);
+    renderbitmap(-39,26,GLUT_BITMAP_HELVETICA_10, buf);
 
     // Informacoes da partida.
     sprintf_s(buf,"RODADA %d   (PLAYER 1) %d x %d (PLAYER 2)", rodada+1, ponto_1,ponto_2);
