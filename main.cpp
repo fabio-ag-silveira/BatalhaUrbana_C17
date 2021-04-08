@@ -1081,6 +1081,8 @@ void tiro_1()
             {
                 glutTimerFunc(1000, tempo, 0.1);
                 glutTimerFunc(1000, tempo, 0.1);
+                vez1 = false;
+                vez2 = false;
                 nova_rodada();
             }
             bola1 = false;  // Sai da condicao de tiro.
@@ -1175,6 +1177,8 @@ void tiro_2()
                 glutTimerFunc(1000, tempo, 0.1);
                 glutTimerFunc(1000, tempo, 0.1);
                 nova_rodada();
+                vez1 = false;
+                vez2 = false;
             }
             bola2 = false;  // Sai da condicao de tiro.
             Tempo = 0;
