@@ -826,560 +826,6 @@ void spawn_carrinho_2()
     glPopMatrix();
 }
 
-void colisoes()
-{
-
-     glPushMatrix();
-    glTranslatef(-30,-5,0.0);
-
-    glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-45,-3,0.0);
-    //glScalef(1,1.25,0.0);
-    glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-60,-7.5,0.0);
-    glColor3f(1,1,1);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-75,-5,0.0);
-    glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-90,-7.5,0.0);
-        glColor3f(1,1,1);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-105,-12,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-    //glScalef(1,0.8,0.0);
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-135,-5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-150,-7.5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-165,-5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-180,-7.5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-195,-5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-
-    glPushMatrix();
-    glTranslatef(-195,8.5,0.0);
-    glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6.0f,0.0f);
-    glVertex2f(0.0f,6.0f);
-    glVertex2f(6.0f,0.0f);
-    glVertex2f(0.0f,0.0f);
-    glEnd();
-
-    glPopMatrix();
-
-//------------- Construcoes do lado direito -------------
-    glPushMatrix();
-    glTranslatef(+15,-5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+30,-8.5,0.0);
-        glColor3f(1,1,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-    //glScalef(1,0.85,0.0);
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+45,-5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(45,8.5,0.0);
-    glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6.0f,0.0f);
-    glVertex2f(0.0f,6.0f);
-    glVertex2f(6.0f,0.0f);
-    glVertex2f(0.0f,0.0f);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+60,-7.5,0.0);
-        glColor3f(1,1,1);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+75,-5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+90,-5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-        glPushMatrix();
-    glTranslatef(90,8.5,0.0);
-    glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6.0f,0.0f);
-    glVertex2f(0.0f,6.0f);
-    glVertex2f(6.0f,0.0f);
-    glVertex2f(0.0f,0.0f);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+105,-7.5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+135,-7.5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+150,-5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+165,-5,0.0);
-        glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+180,-7.5,0.0);
-    glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    glEnd();
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(+205,-7.5,0.0);
-    glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-1400);
-    glVertex2f(-6,1400);
-    glVertex2f(6,1400);
-    glVertex2f(6,-1400);
-    glEnd();
-    glPopMatrix();
-
-        glPushMatrix();
-    glTranslatef(-205,-7.5,0.0);
-    glColor3f(1,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-6,-1400);
-    glVertex2f(-6,1400);
-    glVertex2f(6,1400);
-    glVertex2f(6,-1400);
-    glEnd();
-    glPopMatrix();
-
-
-    /*
-    glTranslatef(-30,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -30-6          && posicao_x+c1_1 <= -30+6         && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-
-    glTranslatef(-45,-3,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -45-6          && posicao_x+c1_1 <= -45+6         && posicao_y+c1_2 >= -3-14         && posicao_y+c1_2 <= -3+14)     ||
-
-
-    glTranslatef(-60,-7.5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -60-6          && posicao_x+c1_1 <= -60+6         && posicao_y+c1_2 >= -7.5-14       && posicao_y+c1_2 <= -7.5+14)   ||
-
-
-    glTranslatef(-75,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -75-6          && posicao_x+c1_1 <= -75+6         && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-
-    glTranslatef(-90,-7.5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -90-6          && posicao_x+c1_1 <= -90+6         && posicao_y+c1_2 >= -7.5-14       && posicao_y+c1_2 <= -7.5+14)   ||
-
-
-    glTranslatef(-105,-12,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -105-6         && posicao_x+c1_1 <= -105+6        && posicao_y+c1_2 >= -12-14        && posicao_y+c1_2 <= -12+14)    ||
-
-
-    glTranslatef(-135,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -135-6         && posicao_x+c1_1 <= -135+6        && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-    glTranslatef(-150,-7.5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -150-6         && posicao_x+c1_1 <= -140+6        && posicao_y+c1_2 >= -7.5-14       && posicao_y+c1_2 <= -7.5+14)   ||
-
-
-    glTranslatef(-165,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -165-6         && posicao_x+c1_1 <= -165+6        && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-
-    glTranslatef(-180,-7.5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -180-6         && posicao_x+c1_1 <= -180+6        && posicao_y+c1_2 >= -7.5-14       && posicao_y+c1_2 <= -7.5+14)   ||
-
-
-    glTranslatef(-195,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= -195-6         && posicao_x+c1_1 <= -195+6        && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-
-    glTranslatef(-195,8.5,0.0);
-    glVertex2f(-6.0f,0.0f);
-    glVertex2f(0.0f,6.0f);
-    glVertex2f(6.0f,0.0f);
-    glVertex2f(0.0f,0.0f);
-
-    // TRIANGULO
-    (posicao_x+c1_1 >= -195-6         && posicao_x+c1_1 <= -195+6        && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+6)     ||
-
-
-//------------- Construcoes do lado direito -------------
-
-    glTranslatef(+15,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= +15-6          && posicao_x+c1_1 <= +15+6         && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-
-    glTranslatef(+30,-8.5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= +30-6          && posicao_x+c1_1 <= +30+6         && posicao_y+c1_2 >= -8.5-14       && posicao_y+c1_2 <= -8.5+14)   ||
-
-
-    glTranslatef(+45,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= +45-6          && posicao_x+c1_1 <= +45+6         && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-
-    glTranslatef(45,8.5,0.0);
-    glVertex2f(-6.0f,0.0f);
-    glVertex2f(0.0f,6.0f);
-    glVertex2f(6.0f,0.0f);
-    glVertex2f(0.0f,0.0f);
-
-    // TRIANGULO
-    (posicao_x+c1_1 >= 45-6           && posicao_x+c1_1 <= 45+6          && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+6)     ||
-
-
-    glTranslatef(+60,-7.5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= +60-6          && posicao_x+c1_1 <= +60+6         && posicao_y+c1_2 >= -7.5-14       && posicao_y+c1_2 <= -7.5+14)   ||
-
-
-    glTranslatef(+75,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= +75-6          && posicao_x+c1_1 <= +75+6         && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-
-    glTranslatef(+90,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= 90-6           && posicao_x+c1_1 <= 90+6          && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-
-    glTranslatef(90,8.5,0.0);
-    glVertex2f(-6.0f,0.0f);
-    glVertex2f(0.0f,6.0f);
-    glVertex2f(6.0f,0.0f);
-    glVertex2f(0.0f,0.0f);
-
-    // TRIANGULO
-    (posicao_x+c1_1 >= 90-6           && posicao_x+c1_1 <= 90+6          && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+6)     ||
-
-
-    glTranslatef(+105,-7.5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= +105-6         && posicao_x+c1_1 <= +105+6        && posicao_y+c1_2 >= -7.5-14       && posicao_y+c1_2 <= -7.5+14)   ||
-
-
-    glTranslatef(+135,-7.5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= +135-6         && posicao_x+c1_1 <= +135+6        && posicao_y+c1_2 >= -7.5-14       && posicao_y+c1_2 <= -7.5+14)   ||
-
-
-    glTranslatef(+150,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= +150-6         && posicao_x+c1_1 <= +150+6        && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-
-    glTranslatef(+165,-5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= +165-6         && posicao_x+c1_1 <= +165+6        && posicao_y+c1_2 >= -5-14         && posicao_y+c1_2 <= -5+14)     ||
-
-
-    glTranslatef(+180,-7.5,0.0);
-    glVertex2f(-6,-14);
-    glVertex2f(-6,14);
-    glVertex2f(6,14);
-    glVertex2f(6,-14);
-    (posicao_x+c1_1 >= +180-6         && posicao_x+c1_1 <= +180+6        && posicao_y+c1_2 >= -7.5-14       && posicao_y+c1_2 <= -7.5+14)   ||
-
-
-    glTranslatef(+205,-7.5,0.0);
-    glVertex2f(-6,-1400);
-    glVertex2f(-6,1400);
-    glVertex2f(6,1400);
-    glVertex2f(6,-1400);
-    (posicao_x+c1_1 >= +205-6         && posicao_x+c1_1 <= +205+6        && posicao_y+c1_2 >= -7.5-1400     && posicao_y+c1_2 <= -7.5+1400) ||
-
-    glTranslatef(-205,-7.5,0.0);
-    glVertex2f(-6,-1400);
-    glVertex2f(-6,1400);
-    glVertex2f(6,1400);
-    glVertex2f(6,-1400);
-    (posicao_x+c1_1 >= -205-6         && posicao_x+c1_1 <= -205+6        && posicao_y+c1_2 >= -7.5-1400     && posicao_y+c1_2 <= -7.5+1400) ||
-    */
-}
-
 static void Atualiza_desenho(void)
 {
     glMatrixMode(GL_MODELVIEW);
@@ -1401,8 +847,6 @@ static void Atualiza_desenho(void)
     // Desenha os carrinhos em uma das quatro posicoes de cada.
     spawn_carrinho_1();
     spawn_carrinho_2();
-
-    //colisoes();
 
     glFlush();
 }
@@ -1647,13 +1091,12 @@ void tiro_1()
 
         if( (posicao_x+c1_1 >= -30-7          && posicao_x+c1_1 <= -30+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
             (posicao_x+c1_1 >= -45-7          && posicao_x+c1_1 <= -45+7         && posicao_y+c1_2 >= -3-15         && posicao_y+c1_2 <= -3+15)     ||
-            (posicao_x+c1_1 >= -70-7          && posicao_x+c1_1 <= -70+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= -75-7          && posicao_x+c1_1 <= -75+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
             (posicao_x+c1_1 >= -90-7          && posicao_x+c1_1 <= -90+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= -105-7         && posicao_x+c1_1 <= -105+7        && posicao_y+c1_2 >= -12-15        && posicao_y+c1_2 <= -12+15)    ||
             (posicao_x+c1_1 >= -135-7         && posicao_x+c1_1 <= -135+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= -150-7         && posicao_x+c1_1 <= -150+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
-            (posicao_x+c1_1 >= -175-7         && posicao_x+c1_1 <= -175+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= -140-7         && posicao_x+c1_1 <= -140+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+            (posicao_x+c1_1 >= -165-7         && posicao_x+c1_1 <= -165+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
             (posicao_x+c1_1 >= -180-7         && posicao_x+c1_1 <= -180+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= -195-7         && posicao_x+c1_1 <= -195+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
             (posicao_x+c1_1 >= -195-7         && posicao_x+c1_1 <= -195+7        && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
@@ -1663,14 +1106,13 @@ void tiro_1()
             (posicao_x+c1_1 >= 45-7           && posicao_x+c1_1 <= 45+7          && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
             (posicao_x+c1_1 >= 60-7           && posicao_x+c1_1 <= 60+7          && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= -60-7          && posicao_x+c1_1 <= -60+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
-            (posicao_x+c1_1 >= +70-7          && posicao_x+c1_1 <= +70+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= +75-7          && posicao_x+c1_1 <= +75+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
             (posicao_x+c1_1 >= 90-7           && posicao_x+c1_1 <= 90+7          && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
             (posicao_x+c1_1 >= 90-7           && posicao_x+c1_1 <= 90+7          && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
             (posicao_x+c1_1 >= +105-7         && posicao_x+c1_1 <= +105+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= +135-7         && posicao_x+c1_1 <= +135+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= +150-7         && posicao_x+c1_1 <= +150+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= +175-7         && posicao_x+c1_1 <= +175+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+            (posicao_x+c1_1 >= +165-7         && posicao_x+c1_1 <= +165+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
             (posicao_x+c1_1 >= +180-7         && posicao_x+c1_1 <= +180+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
             (posicao_x+c1_1 >= +205-7         && posicao_x+c1_1 <= +205+7        && posicao_y+c1_2 >= -7.5-1500     && posicao_y+c1_2 <= -7.5+1500) ||
             (posicao_x+c1_1 >= -205-7         && posicao_x+c1_1 <= -205+7        && posicao_y+c1_2 >= -7.5-1500     && posicao_y+c1_2 <= -7.5+1500) ||
@@ -1742,13 +1184,12 @@ void tiro_2()
 
         if( (posicao_x+c2_1 >= -30-7          && posicao_x+c2_1 <= -30+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
             (posicao_x+c2_1 >= -45-7          && posicao_x+c2_1 <= -45+7         && posicao_y+c2_2 >= -3-15         && posicao_y+c2_2 <= -3+15)     ||
-            (posicao_x+c2_1 >= -70-7          && posicao_x+c2_1 <= -70+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= -75-7          && posicao_x+c2_1 <= -75+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
             (posicao_x+c2_1 >= -90-7          && posicao_x+c2_1 <= -90+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= -105-7         && posicao_x+c2_1 <= -105+7        && posicao_y+c2_2 >= -12-15        && posicao_y+c2_2 <= -12+15)    ||
             (posicao_x+c2_1 >= -135-7         && posicao_x+c2_1 <= -135+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= -150-7         && posicao_x+c2_1 <= -150+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
-            (posicao_x+c2_1 >= -175-7         && posicao_x+c2_1 <= -175+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= -140-7         && posicao_x+c2_1 <= -140+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+            (posicao_x+c2_1 >= -165-7         && posicao_x+c2_1 <= -165+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
             (posicao_x+c2_1 >= -180-7         && posicao_x+c2_1 <= -180+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= -195-7         && posicao_x+c2_1 <= -195+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
             (posicao_x+c2_1 >= -195-7         && posicao_x+c2_1 <= -195+7        && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
@@ -1758,14 +1199,13 @@ void tiro_2()
             (posicao_x+c2_1 >= 45-7           && posicao_x+c2_1 <= 45+7          && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
             (posicao_x+c2_1 >= 60-7           && posicao_x+c2_1 <= 60+7          && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= -60-7          && posicao_x+c2_1 <= -60+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
-            (posicao_x+c2_1 >= +70-7          && posicao_x+c2_1 <= +70+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= +75-7          && posicao_x+c2_1 <= +75+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
             (posicao_x+c2_1 >= 90-7           && posicao_x+c2_1 <= 90+7          && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
             (posicao_x+c2_1 >= 90-7           && posicao_x+c2_1 <= 90+7          && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
             (posicao_x+c2_1 >= +105-7         && posicao_x+c2_1 <= +105+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= +135-7         && posicao_x+c2_1 <= +135+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= +150-7         && posicao_x+c2_1 <= +150+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= +175-7         && posicao_x+c2_1 <= +175+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+            (posicao_x+c2_1 >= +165-7         && posicao_x+c2_1 <= +165+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
             (posicao_x+c2_1 >= +180-7         && posicao_x+c2_1 <= +180+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
             (posicao_x+c2_1 >= +205-7         && posicao_x+c2_1 <= +205+7        && posicao_y+c2_2 >= -7.5-1500     && posicao_y+c2_2 <= -7.5+1500) ||
             (posicao_x+c2_1 >= -205-7         && posicao_x+c2_1 <= -205+7        && posicao_y+c2_2 >= -7.5-1500     && posicao_y+c2_2 <= -7.5+1500) ||
