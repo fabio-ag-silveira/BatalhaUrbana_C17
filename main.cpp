@@ -195,7 +195,7 @@ void eixo()
 // -------------- Desenhos --------------
 void desenha_predio_maior()
 {
-    glColor3f(0.5,0.5,0.5);
+    glColor3f(0.0,0.5,0.5);
     predio_maior();
 
     // Primeiro par de janelas.
@@ -937,13 +937,12 @@ void LeTeclado(unsigned char tecla, int x, int y)
                 if(angulo_1 <= 87) angulo_1 = angulo_1 + 1;
                 glutPostRedisplay();
             }
-
             break;
 
         case 'd':
             if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
-                 // Decrementa em 1 o angulo se nao estiver no limite.
+                // Decrementa em 1 o angulo se nao estiver no limite.
                 if(angulo_1 >= -87) angulo_1 = angulo_1 - 1;
                 glutPostRedisplay();
             }
@@ -953,7 +952,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
             if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
                 // Incrementa em 1 a velocidade do canhao 1.
-                if(Velocidade_1 >= 1) Velocidade_1 = Velocidade_1 + 1;
+                if(Velocidade_1 <= 199) Velocidade_1 = Velocidade_1 + 1;
                 glutPostRedisplay();
             }
             break;
@@ -1008,7 +1007,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
             if(vez2 == false)   // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
                 // Incrementa em 1 a velocidade do canhao 2.
-                if(Velocidade_2 >= 1) Velocidade_2 = Velocidade_2 + 1;
+                if(Velocidade_2 <= 199) Velocidade_2 = Velocidade_2 + 1;
                 glutPostRedisplay();
             }
             break;
@@ -1098,33 +1097,33 @@ void tiro_1()
         }
 
         if( (posicao_x+c1_1 >= -30-7          && posicao_x+c1_1 <= -30+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= -45-7          && posicao_x+c1_1 <= -45+7         && posicao_y+c1_2 >= -3-15         && posicao_y+c1_2 <= -3+15)     ||
-            (posicao_x+c1_1 >= -75-7          && posicao_x+c1_1 <= -75+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= -90-7          && posicao_x+c1_1 <= -90+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
-            (posicao_x+c1_1 >= -105-7         && posicao_x+c1_1 <= -105+7        && posicao_y+c1_2 >= -12-15        && posicao_y+c1_2 <= -12+15)    ||
-            (posicao_x+c1_1 >= -135-7         && posicao_x+c1_1 <= -135+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= -150-7         && posicao_x+c1_1 <= -150+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
-            (posicao_x+c1_1 >= -165-7         && posicao_x+c1_1 <= -165+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= -180-7         && posicao_x+c1_1 <= -180+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
-            (posicao_x+c1_1 >= -195-7         && posicao_x+c1_1 <= -195+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= -195-7         && posicao_x+c1_1 <= -195+7        && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
-            (posicao_x+c1_1 >= +15-7          && posicao_x+c1_1 <= +15+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= +30-7          && posicao_x+c1_1 <= +30+7         && posicao_y+c1_2 >= -8.5-15       && posicao_y+c1_2 <= -8.5+15)   ||
-            (posicao_x+c1_1 >= +45-7          && posicao_x+c1_1 <= +45+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= 45-7           && posicao_x+c1_1 <= 45+7          && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
-            (posicao_x+c1_1 >= 60-7           && posicao_x+c1_1 <= 60+7          && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
-            (posicao_x+c1_1 >= -60-7          && posicao_x+c1_1 <= -60+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
-            (posicao_x+c1_1 >= +75-7          && posicao_x+c1_1 <= +75+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= 90-7           && posicao_x+c1_1 <= 90+7          && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= 90-7           && posicao_x+c1_1 <= 90+7          && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
-            (posicao_x+c1_1 >= +105-7         && posicao_x+c1_1 <= +105+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
-            (posicao_x+c1_1 >= +135-7         && posicao_x+c1_1 <= +135+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
-            (posicao_x+c1_1 >= +150-7         && posicao_x+c1_1 <= +150+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= +165-7         && posicao_x+c1_1 <= +165+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
-            (posicao_x+c1_1 >= +180-7         && posicao_x+c1_1 <= +180+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
-            (posicao_x+c1_1 >= +205-7         && posicao_x+c1_1 <= +205+7        && posicao_y+c1_2 >= -7.5-1500     && posicao_y+c1_2 <= -7.5+1500) ||
-            (posicao_x+c1_1 >= -205-7         && posicao_x+c1_1 <= -205+7        && posicao_y+c1_2 >= -7.5-1500     && posicao_y+c1_2 <= -7.5+1500) ||
-            (posicao_x+c1_1 >= +0-1000        && posicao_x+c1_1 <= +0+1000       && posicao_y+c1_2 >= -40-7         && posicao_y+c1_2 <= -40+24))
+                (posicao_x+c1_1 >= -45-7          && posicao_x+c1_1 <= -45+7         && posicao_y+c1_2 >= -3-15         && posicao_y+c1_2 <= -3+15)     ||
+                (posicao_x+c1_1 >= -75-7          && posicao_x+c1_1 <= -75+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+                (posicao_x+c1_1 >= -90-7          && posicao_x+c1_1 <= -90+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+                (posicao_x+c1_1 >= -105-7         && posicao_x+c1_1 <= -105+7        && posicao_y+c1_2 >= -12-15        && posicao_y+c1_2 <= -12+15)    ||
+                (posicao_x+c1_1 >= -135-7         && posicao_x+c1_1 <= -135+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+                (posicao_x+c1_1 >= -150-7         && posicao_x+c1_1 <= -150+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+                (posicao_x+c1_1 >= -165-7         && posicao_x+c1_1 <= -165+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+                (posicao_x+c1_1 >= -180-7         && posicao_x+c1_1 <= -180+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+                (posicao_x+c1_1 >= -195-7         && posicao_x+c1_1 <= -195+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+                (posicao_x+c1_1 >= -195-7         && posicao_x+c1_1 <= -195+7        && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
+                (posicao_x+c1_1 >= +15-7          && posicao_x+c1_1 <= +15+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+                (posicao_x+c1_1 >= +30-7          && posicao_x+c1_1 <= +30+7         && posicao_y+c1_2 >= -8.5-15       && posicao_y+c1_2 <= -8.5+15)   ||
+                (posicao_x+c1_1 >= +45-7          && posicao_x+c1_1 <= +45+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+                (posicao_x+c1_1 >= 45-7           && posicao_x+c1_1 <= 45+7          && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
+                (posicao_x+c1_1 >= 60-7           && posicao_x+c1_1 <= 60+7          && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+                (posicao_x+c1_1 >= -60-7          && posicao_x+c1_1 <= -60+7         && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+                (posicao_x+c1_1 >= +75-7          && posicao_x+c1_1 <= +75+7         && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+                (posicao_x+c1_1 >= 90-7           && posicao_x+c1_1 <= 90+7          && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+                (posicao_x+c1_1 >= 90-7           && posicao_x+c1_1 <= 90+7          && posicao_y+c1_2 >= 8.5-0         && posicao_y+c1_2 <= 8.5+7)     ||
+                (posicao_x+c1_1 >= +105-7         && posicao_x+c1_1 <= +105+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+                (posicao_x+c1_1 >= +135-7         && posicao_x+c1_1 <= +135+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+                (posicao_x+c1_1 >= +150-7         && posicao_x+c1_1 <= +150+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+                (posicao_x+c1_1 >= +165-7         && posicao_x+c1_1 <= +165+7        && posicao_y+c1_2 >= -5-15         && posicao_y+c1_2 <= -5+15)     ||
+                (posicao_x+c1_1 >= +180-7         && posicao_x+c1_1 <= +180+7        && posicao_y+c1_2 >= -7.5-15       && posicao_y+c1_2 <= -7.5+15)   ||
+                (posicao_x+c1_1 >= +205-7         && posicao_x+c1_1 <= +205+7        && posicao_y+c1_2 >= -7.5-1500     && posicao_y+c1_2 <= -7.5+1500) ||
+                (posicao_x+c1_1 >= -205-7         && posicao_x+c1_1 <= -205+7        && posicao_y+c1_2 >= -7.5-1500     && posicao_y+c1_2 <= -7.5+1500) ||
+                (posicao_x+c1_1 >= +0-1000        && posicao_x+c1_1 <= +0+1000       && posicao_y+c1_2 >= -40-7         && posicao_y+c1_2 <= -40+24))
         {
             bola1 = false;  // Colidiu nos predios ou nas bordas laterais/inferior, entao sai da condicao de tiro.
             Tempo = 0;
@@ -1199,33 +1198,33 @@ void tiro_2()
         }
 
         if( (posicao_x+c2_1 >= -30-7          && posicao_x+c2_1 <= -30+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= -45-7          && posicao_x+c2_1 <= -45+7         && posicao_y+c2_2 >= -3-15         && posicao_y+c2_2 <= -3+15)     ||
-            (posicao_x+c2_1 >= -75-7          && posicao_x+c2_1 <= -75+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= -90-7          && posicao_x+c2_1 <= -90+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
-            (posicao_x+c2_1 >= -105-7         && posicao_x+c2_1 <= -105+7        && posicao_y+c2_2 >= -12-15        && posicao_y+c2_2 <= -12+15)    ||
-            (posicao_x+c2_1 >= -135-7         && posicao_x+c2_1 <= -135+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= -150-7         && posicao_x+c2_1 <= -150+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
-            (posicao_x+c2_1 >= -165-7         && posicao_x+c2_1 <= -165+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= -180-7         && posicao_x+c2_1 <= -180+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
-            (posicao_x+c2_1 >= -195-7         && posicao_x+c2_1 <= -195+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= -195-7         && posicao_x+c2_1 <= -195+7        && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
-            (posicao_x+c2_1 >= +15-7          && posicao_x+c2_1 <= +15+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= +30-7          && posicao_x+c2_1 <= +30+7         && posicao_y+c2_2 >= -8.5-15       && posicao_y+c2_2 <= -8.5+15)   ||
-            (posicao_x+c2_1 >= +45-7          && posicao_x+c2_1 <= +45+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= 45-7           && posicao_x+c2_1 <= 45+7          && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
-            (posicao_x+c2_1 >= 60-7           && posicao_x+c2_1 <= 60+7          && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
-            (posicao_x+c2_1 >= -60-7          && posicao_x+c2_1 <= -60+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
-            (posicao_x+c2_1 >= +75-7          && posicao_x+c2_1 <= +75+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= 90-7           && posicao_x+c2_1 <= 90+7          && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= 90-7           && posicao_x+c2_1 <= 90+7          && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
-            (posicao_x+c2_1 >= +105-7         && posicao_x+c2_1 <= +105+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
-            (posicao_x+c2_1 >= +135-7         && posicao_x+c2_1 <= +135+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
-            (posicao_x+c2_1 >= +150-7         && posicao_x+c2_1 <= +150+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= +165-7         && posicao_x+c2_1 <= +165+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
-            (posicao_x+c2_1 >= +180-7         && posicao_x+c2_1 <= +180+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
-            (posicao_x+c2_1 >= +205-7         && posicao_x+c2_1 <= +205+7        && posicao_y+c2_2 >= -7.5-1500     && posicao_y+c2_2 <= -7.5+1500) ||
-            (posicao_x+c2_1 >= -205-7         && posicao_x+c2_1 <= -205+7        && posicao_y+c2_2 >= -7.5-1500     && posicao_y+c2_2 <= -7.5+1500) ||
-            (posicao_x+c2_1 >= +0-1000        && posicao_x+c2_1 <= +0+1000       && posicao_y+c2_2 >= -40-7         && posicao_y+c2_2 <= -40+24))
+                (posicao_x+c2_1 >= -45-7          && posicao_x+c2_1 <= -45+7         && posicao_y+c2_2 >= -3-15         && posicao_y+c2_2 <= -3+15)     ||
+                (posicao_x+c2_1 >= -75-7          && posicao_x+c2_1 <= -75+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+                (posicao_x+c2_1 >= -90-7          && posicao_x+c2_1 <= -90+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+                (posicao_x+c2_1 >= -105-7         && posicao_x+c2_1 <= -105+7        && posicao_y+c2_2 >= -12-15        && posicao_y+c2_2 <= -12+15)    ||
+                (posicao_x+c2_1 >= -135-7         && posicao_x+c2_1 <= -135+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+                (posicao_x+c2_1 >= -150-7         && posicao_x+c2_1 <= -150+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+                (posicao_x+c2_1 >= -165-7         && posicao_x+c2_1 <= -165+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+                (posicao_x+c2_1 >= -180-7         && posicao_x+c2_1 <= -180+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+                (posicao_x+c2_1 >= -195-7         && posicao_x+c2_1 <= -195+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+                (posicao_x+c2_1 >= -195-7         && posicao_x+c2_1 <= -195+7        && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
+                (posicao_x+c2_1 >= +15-7          && posicao_x+c2_1 <= +15+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+                (posicao_x+c2_1 >= +30-7          && posicao_x+c2_1 <= +30+7         && posicao_y+c2_2 >= -8.5-15       && posicao_y+c2_2 <= -8.5+15)   ||
+                (posicao_x+c2_1 >= +45-7          && posicao_x+c2_1 <= +45+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+                (posicao_x+c2_1 >= 45-7           && posicao_x+c2_1 <= 45+7          && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
+                (posicao_x+c2_1 >= 60-7           && posicao_x+c2_1 <= 60+7          && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+                (posicao_x+c2_1 >= -60-7          && posicao_x+c2_1 <= -60+7         && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+                (posicao_x+c2_1 >= +75-7          && posicao_x+c2_1 <= +75+7         && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+                (posicao_x+c2_1 >= 90-7           && posicao_x+c2_1 <= 90+7          && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+                (posicao_x+c2_1 >= 90-7           && posicao_x+c2_1 <= 90+7          && posicao_y+c2_2 >= 8.5-0         && posicao_y+c2_2 <= 8.5+7)     ||
+                (posicao_x+c2_1 >= +105-7         && posicao_x+c2_1 <= +105+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+                (posicao_x+c2_1 >= +135-7         && posicao_x+c2_1 <= +135+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+                (posicao_x+c2_1 >= +150-7         && posicao_x+c2_1 <= +150+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+                (posicao_x+c2_1 >= +165-7         && posicao_x+c2_1 <= +165+7        && posicao_y+c2_2 >= -5-15         && posicao_y+c2_2 <= -5+15)     ||
+                (posicao_x+c2_1 >= +180-7         && posicao_x+c2_1 <= +180+7        && posicao_y+c2_2 >= -7.5-15       && posicao_y+c2_2 <= -7.5+15)   ||
+                (posicao_x+c2_1 >= +205-7         && posicao_x+c2_1 <= +205+7        && posicao_y+c2_2 >= -7.5-1500     && posicao_y+c2_2 <= -7.5+1500) ||
+                (posicao_x+c2_1 >= -205-7         && posicao_x+c2_1 <= -205+7        && posicao_y+c2_2 >= -7.5-1500     && posicao_y+c2_2 <= -7.5+1500) ||
+                (posicao_x+c2_1 >= +0-1000        && posicao_x+c2_1 <= +0+1000       && posicao_y+c2_2 >= -40-7         && posicao_y+c2_2 <= -40+24))
         {
             bola2 = false;  // Colidiu nos predios ou nas bordas laterais/inferior, entao sai da condicao de tiro.
             Tempo = 0;
