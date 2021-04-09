@@ -1320,22 +1320,22 @@ void texto()
     // Controles do Player 2.
     sprintf(buf,"(PLAYER 2)");
     glColor3f(0.5,0.0,0.0);
-    renderbitmap(-24,36,GLUT_BITMAP_HELVETICA_10, buf);
+    renderbitmap(-26,36,GLUT_BITMAP_HELVETICA_10, buf);
     sprintf(buf,"+ VELOCIDADE:    I");
     glColor3f(0.0f, 0.0f, 0.0f);
-    renderbitmap(-25,35,GLUT_BITMAP_HELVETICA_10, buf);
+    renderbitmap(-27,35,GLUT_BITMAP_HELVETICA_10, buf);
     sprintf(buf,"- VELOCIDADE:    K");
     glColor3f(0.0f, 0.0f, 0.0f);
-    renderbitmap(-25,34,GLUT_BITMAP_HELVETICA_10, buf);
+    renderbitmap(-27,34,GLUT_BITMAP_HELVETICA_10, buf);
     sprintf(buf,"+ ANGULO:            J");
     glColor3f(0.0f, 0.0f, 0.0f);
-    renderbitmap(-25,33,GLUT_BITMAP_HELVETICA_10, buf);
+    renderbitmap(-27,33,GLUT_BITMAP_HELVETICA_10, buf);
     sprintf(buf,"- ANGULO:            L");
     glColor3f(0.0f, 0.0f, 0.0f);
-    renderbitmap(-25,32,GLUT_BITMAP_HELVETICA_10, buf);
+    renderbitmap(-27,32,GLUT_BITMAP_HELVETICA_10, buf);
     sprintf(buf,"ATIRAR:                  H");
     glColor3f(0.0f, 0.0f, 0.0f);
-    renderbitmap(-25,31,GLUT_BITMAP_HELVETICA_10, buf);
+    renderbitmap(-27,31,GLUT_BITMAP_HELVETICA_10, buf);
 
     sprintf(buf,"NOVO JOGO:         B");
     glColor3f(0.0f, 0.0f, 0.0f);
