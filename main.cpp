@@ -1364,7 +1364,7 @@ int main(int argc, char *argv[])
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE );
-    glutInitWindowPosition(300,80);
+    glutInitWindowPosition(10,10);
     glutInitWindowSize(1200,800);
     glutCreateWindow("Batalha Urbana - City 17");
     glutReshapeFunc(Atualiza_tamanho);
