@@ -931,7 +931,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
         case 'a':
             if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
-                // Incrementa em 1 o angulo se nao estiver no limite.
+                // Incrementa em 3 o angulo se nao estiver no limite.
                 if(angulo_1 <= 87) angulo_1 = angulo_1 + 3;
                 glutPostRedisplay();
             }
@@ -940,7 +940,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
         case 'd':
             if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
-                // Decrementa em 1 o angulo se nao estiver no limite.
+                // Decrementa em 3 o angulo se nao estiver no limite.
                 if(angulo_1 >= -87) angulo_1 = angulo_1 - 3;
                 glutPostRedisplay();
             }
@@ -995,7 +995,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
         case 'l':
             if(vez2 == false)   // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
-                // Decrementa em 1 o angulo se nao estiver no limite.
+                // Decrementa em 3 o angulo se nao estiver no limite.
                 if(angulo_2 >= -87) angulo_2 = angulo_2 - 3;
                 glutPostRedisplay();
             }
@@ -1004,7 +1004,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
         case 'i':
             if(vez2 == false)   // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
-                // Incrementa em 1 a velocidade do canhao 2.
+                // Incrementa em 3 a velocidade do canhao 2.
                 if(Velocidade_2 <= 199) Velocidade_2 = Velocidade_2 + 1;
                 glutPostRedisplay();
             }
