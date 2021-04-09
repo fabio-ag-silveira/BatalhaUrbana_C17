@@ -931,7 +931,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
         case 'a':
             if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
-                // Incrementa em 3 o angulo se nao estiver no limite.
+                // Incrementa em 1 o angulo se nao estiver no limite.
                 if(angulo_1 <= 87) angulo_1 = angulo_1 + 3;
                 glutPostRedisplay();
             }
@@ -940,7 +940,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
         case 'd':
             if(vez1 == false)   // Condicao para bloquear os controles do carrinho 1 enquanto o projetil estiver no ar.
             {
-                // Decrementa em 3 o angulo se nao estiver no limite.
+                // Decrementa em 1 o angulo se nao estiver no limite.
                 if(angulo_1 >= -87) angulo_1 = angulo_1 - 3;
                 glutPostRedisplay();
             }
@@ -995,7 +995,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
         case 'l':
             if(vez2 == false)   // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
-                // Decrementa em 3 o angulo se nao estiver no limite.
+                // Decrementa em 1 o angulo se nao estiver no limite.
                 if(angulo_2 >= -87) angulo_2 = angulo_2 - 3;
                 glutPostRedisplay();
             }
@@ -1004,7 +1004,7 @@ void LeTeclado(unsigned char tecla, int x, int y)
         case 'i':
             if(vez2 == false)   // Condicao para bloquear os controles do carrinho 2 enquanto o projetil estiver no ar.
             {
-                // Incrementa em 3 a velocidade do canhao 2.
+                // Incrementa em 1 a velocidade do canhao 2.
                 if(Velocidade_2 <= 199) Velocidade_2 = Velocidade_2 + 1;
                 glutPostRedisplay();
             }
@@ -1288,12 +1288,12 @@ void texto()
     {
         glColor3f(0.0f, 1.0f, 1.0f);
         sprintf(buf,"Velocidade: %d m/s, Angulo: %d", Velocidade_1, angulo_1+90);
-        renderbitmap(-39,38,GLUT_BITMAP_HELVETICA_18, buf);
+        renderbitmap(-38,38,GLUT_BITMAP_HELVETICA_18, buf);
     }
     // Controles do Player 1.
     sprintf(buf,"(PLAYER 1)");
     glColor3f(0.0f, 1.0f, 1.0f);
-    renderbitmap(-39,36,GLUT_BITMAP_HELVETICA_10, buf);
+    renderbitmap(-38,36,GLUT_BITMAP_HELVETICA_10, buf);
     sprintf(buf,"+ VELOCIDADE:    W");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-39,35,GLUT_BITMAP_HELVETICA_10, buf);
@@ -1314,13 +1314,13 @@ void texto()
     {
         glColor3f(0.5,0.0,0.0);
         sprintf(buf,"Velocidade: %d m/s, Angulo: %d", Velocidade_2, angulo_2+90);
-        renderbitmap(-39,38,GLUT_BITMAP_HELVETICA_18, buf);
+        renderbitmap(-38,38,GLUT_BITMAP_HELVETICA_18, buf);
     }
 
     // Controles do Player 2.
     sprintf(buf,"(PLAYER 2)");
     glColor3f(0.5,0.0,0.0);
-    renderbitmap(-25,36,GLUT_BITMAP_HELVETICA_10, buf);
+    renderbitmap(-24,36,GLUT_BITMAP_HELVETICA_10, buf);
     sprintf(buf,"+ VELOCIDADE:    I");
     glColor3f(0.0f, 0.0f, 0.0f);
     renderbitmap(-25,35,GLUT_BITMAP_HELVETICA_10, buf);
